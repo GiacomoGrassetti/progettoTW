@@ -3,7 +3,7 @@
     <head>
         <meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" href="style.css">
         <title><?php echo $templateParams["titolo"]; ?></title>
 
@@ -23,7 +23,7 @@
                 </div>
                 <div id="header-login-right " class="col-sm mt-4" >
                     <span class="d-flex justify-content-center">
-                        <h6><a class="col-sm-1" href="#">Login</a> | <a class="col-sm-1" href="#">Carrello</a><h6>
+                        <h6><a class="col-sm-1" href="#"><i class="fas fa-user"></i> Login</a> | <a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Carrello</a><h6>
                     </span>
                 </div>
             </div>

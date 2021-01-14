@@ -4,9 +4,9 @@
         <meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
         <title><?php echo $templateParams["titolo"]; ?></title>
-
     </head>
     <body>
     <!--INIZIO HEADER-->
@@ -23,7 +23,32 @@
                 </div>
                 <div id="header-login-right " class="col-sm mt-4" >
                     <span class="d-flex justify-content-center">
-                        <h6><a class="col-sm-1" href="#"><i class="fas fa-user"></i> Login</a> | <a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Carrello</a><h6>
+                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="">
+                            <h6><i  class="fas fa-user"></i> Login | </h6>
+                        </a>
+                        <div class="dropdown-menu">
+                            <form class="px-4 py-3">
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Enter your email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">
+                                    Remember me
+                                </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </form>
+                            <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
+                                <a class="dropdown-item" href="#">Forgot password?</a>
+                        </div>
+                        <h6><a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Cart</a></h6>
                     </span>
                 </div>
             </div>
@@ -104,7 +129,7 @@
                     </div>
                 </div>
                 <div class="col-md">
-                    <img class="pt-4" id="footer-img"src="img/thresh-1.png"/>
+                    <img class="pt-4" id="footer-img" src="img/thresh-1.png"/>
                 </div>
             </div>
             <div class="row">
@@ -118,6 +143,5 @@
     
 </html>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

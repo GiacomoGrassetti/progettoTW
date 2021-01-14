@@ -1,0 +1,120 @@
+/* TEMPLATE BASE */
+a {
+    color: #b5a982 !important;
+}
+
+a:visited {
+    color: #b5a982 !important;
+}
+a:hover {
+    color: #f1f1f1 !important;
+}
+
+#btn-login-dropdown {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+
+#header {
+    height: 20%;
+    background-color: #041019;
+}
+
+#logo-img {
+    min-width: 0px;
+    max-width: 150px;
+    max-height: 150px;
+    min-height: 0px;
+}
+
+#search-input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid 7E7E7E;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+#search-button {
+    float: left;
+    padding: 10px;
+    background: #b5a982;
+    color: white;
+    font-size: 17px;
+    border: 2px solid #674f26;
+}
+  
+
+#search-button:hover {
+    background: rgb(195 144 49);
+}
+
+#footer{
+    background-color: #041019;
+    color: #b5a982;
+    height: auto;
+}
+
+#footer-img {
+    width: 40%;
+    height: auto;
+}
+
+/* TEMPLATE REGISTER */
+.register{
+    color: white;
+}
+#registration-container {
+    background-image: url("../img/bg-register1.png");
+    margin: none;
+    width: 100%;
+    height: auto;
+}
+
+#registration-container > h2 {
+    margin: unset;
+}
+
+#reg-divider {
+    width: 100%;
+    height: auto;
+    align-items: center;
+}
+
+.form-input-reg {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+#profile-container {
+    display:block;
+    margin:auto;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profile-container img {
+    width: 150px;
+    height: 150px;
+}

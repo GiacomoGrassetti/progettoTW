@@ -9,6 +9,10 @@ a:visited {
 a:hover {
     color: #f1f1f1 !important;
 }
+.dropdown-item:hover {
+    color: #674f26 !important;
+    font-weight: bold; 
+}
 
 #btn-login-dropdown {
     background-color: Transparent;
@@ -65,6 +69,19 @@ a:hover {
     height: auto;
 }
 
+#btn-login {
+    font-size: 14px;
+    border:none;
+    padding: 10px 20px 10px 20px;
+    color: #ffffff;
+    /* Fallback */
+    background: #b5a982;
+    
+    /* Cut the corner */
+    background: linear-gradient(-45deg, transparent 7px, #674f26 7px);
+    transition: 2s ease;
+}
+
 /* TEMPLATE REGISTER */
 .register{
     color: white;
@@ -117,4 +134,24 @@ a:hover {
 #profile-container img {
     width: 150px;
     height: 150px;
+}
+
+#gradient-bottom {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, rgba(4, 16, 25, 1), rgba(0, 0, 0, 0));
+}
+
+#btn-register {
+    font-size: 14px;
+    border:none;
+    padding: 10px 20px 10px 20px;
+    color: #ffffff;
+    /* Fallback */
+    background: #b5a982;
+    
+    /* Cut the corner */
+    background: linear-gradient(-45deg, transparent 7px, #674f26 7px);
+    transition: 2s ease;
+    
 }

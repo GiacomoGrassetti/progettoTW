@@ -1,4 +1,4 @@
-<div id="registration-container" class="register justify-content-center">
+<div id="registration-container" class="register justify-content-center container-fluid">
     <h2  class="text-center display-6 py-2 text-truncate">Profile avatar</h2>
       <div class="row text-white">
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
@@ -55,12 +55,13 @@
                             <label class="d-flex" for="inputPostalCode">Postal code:</label>
                             <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal code">
                         </div>
+                        <input id="btn-register" class="btn" type="submit" value="Submit">
                     </div>
-                    
                 </form>
             </div>
         </div>
     </div>
+    <div id="gradient-bottom"></div>
 </div>
 
 <script>

@@ -26,6 +26,7 @@
                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="">
                             <h6><i  class="fas fa-user"></i> Login | </h6>
                         </a>
+                        <!--DROPDOWN LOGIN-->
                         <div class="dropdown-menu">
                             <form class="px-4 py-3">
                                 <div class="form-group">
@@ -42,7 +43,7 @@
                                     Remember me
                                 </label>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Sign in</button>
+                                <button id="btn-login" type="submit" class="">Sign in</button>
                             </form>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
@@ -128,8 +129,8 @@
                         <a class="text-muted" href="controller_policy.php">Privacy Policy</a>
                     </div>
                 </div>
-                <div class="col-md">
-                    <img class="pt-4" id="footer-img" src="img/thresh-1.png"/>
+                <div class="col-md-6 justify-content-center">
+                    <img class="pt-2" id="footer-img" src="img/volibear.png"/>
                 </div>
             </div>
             <div class="row">

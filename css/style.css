@@ -82,6 +82,46 @@ a:hover {
     transition: 2s ease;
 }
 
+/*TEMPLATE HOME*/
+
+.item-container{
+    position: relative;
+}
+
+.item {
+    width: 100%;
+    height: auto;
+}
+
+.label-sale{
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    padding: 10px 9px 10px;
+    color: white;
+    background-color: #bd8448;
+    z-index: 2;
+    font-size: 12px;
+    line-height: 10px;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+}
+
+.label-sale::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-top: 0;
+    border-left: 14px solid #bd8448;
+    border-right: 14px solid #bd8448;
+    border-bottom: 8px solid transparent;
+}
+
+.add-to-cart {
+    
+}
+
 /* TEMPLATE REGISTER */
 .register{
     color: white;

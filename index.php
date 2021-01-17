@@ -4,7 +4,7 @@ $dbh = new DbHelper("localhost", "root", "", "lolitems", 3306);
 $templateParams["titolo"] = "LoLItems - Home";
 $templateParams["nome"] = "home.php";
 $templateParams["articoli"]=$dbh->getAllItems();
-
+var_dump($templateParams["articoli"]);
 require "template/base.php";
 
 

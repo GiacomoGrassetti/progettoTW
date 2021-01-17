@@ -10,7 +10,14 @@
                 </div>
                 <div class="row">
                     <div class="col-sm col-md">
-                        <p><?php echo $item["nome"] ?><br>Legendary item<br><?php echo $item["prezzo"] ?>€</p>
+                        <p><?php echo $item["nome"] ?><br>
+                        <?php
+                            $cat=$dbh->getItemCat($item["idOggetto"]);
+                            foreach($cat as $val){
+                                echo $val["nome"] . "<br>";
+                            }
+                        ?>
+                        <br><?php echo $item["prezzo"] ?>€</p>
                     </div>
                     <div class="col-sm col-md d-flex justify-content-center align-self-center">
                         <a href="#"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                

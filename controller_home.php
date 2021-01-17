@@ -3,5 +3,6 @@
     $templateParams["nome"] = "home.php";
    
     $templateParams["articoli"]=$dbh->getAllItems();
+ 
     require("template/home.php");
 ?>

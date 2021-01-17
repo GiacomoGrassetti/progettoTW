@@ -118,8 +118,9 @@ a:hover {
     border-bottom: 8px solid transparent;
 }
 
-.add-to-cart {
-    
+/*TEMPLATE ITEM_INFO*/
+.item-info-container{
+    width: 50%;
 }
 
 /* TEMPLATE REGISTER */

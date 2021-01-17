@@ -7,7 +7,7 @@
                     <p>Ravenous Hydra<br>Legendary item<br>30$</p>
                 </div>
                 <div class="col d-flex justify-content-center align-self-center">
-                    <a href="#"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
+                    <a href="controller_item_info.php"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
                 </div>
             </div>
         </div>
@@ -22,6 +22,11 @@
         </div>
         <div class="col">
             <h2>Stats</h2>
+            <p>
+                +20 ability haste<br>
+                +65 attack damage<br>
+                +15% omnivamp<br>
+            </p>
         </div>
     </div>
 </div>

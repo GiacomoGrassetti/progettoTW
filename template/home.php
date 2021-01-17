@@ -4,13 +4,13 @@
 
         <?php foreach($templateParams["articoli"] as $item): ?>
             <div class="item-container col-md">
-                <img title="Ravenous Hydra" class="item" src="img/idra_famelica.png" alt="Ravenous Hydra">
+                <img title="<?php echo $item["nome"] ?>" class="item" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>">
                 <div class="label-sale">
                     SALES
                 </div>
                 <div class="row">
                     <div class="col-sm col-md">
-                        <p>Ravenous Hydra<br>Legendary item<br>30$</p>
+                        <p><?php echo $item["nome"] ?><br>Legendary item<br><?php echo $item["prezzo"] ?>€</p>
                     </div>
                     <div class="col-sm col-md d-flex justify-content-center align-self-center">
                         <a href="#"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                

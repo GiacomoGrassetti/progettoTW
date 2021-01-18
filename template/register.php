@@ -10,8 +10,6 @@
                      </div>
                      <input id="imageUpload" type="file" 
                             name="profile_photo" placeholder="Photo" required="" capture/>
-                    
-
                     <img id="reg-divider" src="img/reg-divider.png" alt=""> 
 
                     <br><h2 class="d-flex">Personal details:</h2><br>

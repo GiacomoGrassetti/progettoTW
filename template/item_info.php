@@ -5,12 +5,12 @@
         </div>
         <div class="item-info mx-auto row text-white align-self-center">
             <h1 class="item-info-title display-1">Ravenous Hydra</h1>
-            <div class="col ">
+            <div class="col">
                 <ul class="list-group-flush ">
                     <li>+20 ability haste</li>
                     <li>+65 attack damage</li>
                     <li>+15% omnivamp</li>
-                </ul>    
+                </ul>
             </div>
             <div class="vl"></div>
             <div class="col">

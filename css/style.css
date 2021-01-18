@@ -69,7 +69,7 @@ a:hover {
     height: auto;
 }
 
-#btn-login {
+.btn-rectangle {
     font-size: 14px;
     border:none;
     padding: 10px 20px 10px 20px;
@@ -83,11 +83,9 @@ a:hover {
 }
 
 /*TEMPLATE HOME*/
-
-.item-container{
+.item-container {
     position: relative;
 }
-
 .item {
     width: 100%;
     height: auto;
@@ -95,7 +93,7 @@ a:hover {
 
 .label-sale{
     position: absolute;
-    top: 8px;
+    top: 0px;
     right: 16px;
     padding: 10px 9px 10px;
     color: white;
@@ -119,8 +117,41 @@ a:hover {
 }
 
 /*TEMPLATE ITEM_INFO*/
-.item-info-container{
-    width: 50%;
+ul{
+    list-style-type: none;
+}
+
+.vl{
+    width: 1px;
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.2);
+    transform-origin: center top;
+}
+
+.img-item-info {
+    border: 1px solid rgba(255, 255, 255, 0.2);;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.item-info-container {
+    background-image: url("../img/bg_item_info.png");
+    margin: none;
+    width: 100%;
+    height: auto;
+
+}
+
+.item-info-title{
+    color: white;
+    font-family: 'IM Fell Double Pica';
+    text-align: center;
+}
+
+.item-info {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: transparent;
+    width: 80%;
 }
 
 /* TEMPLATE REGISTER */
@@ -178,6 +209,7 @@ a:hover {
 }
 
 #gradient-bottom {
+
     width: 100%;
     height: 100px;
     background: linear-gradient(to top, rgba(4, 16, 25, 1), rgba(0, 0, 0, 0));

@@ -6,7 +6,7 @@
                 <form action="" class="justify-content-center">
                    
                     <div id="profile-container" >
-                        <image id="profileImage" src="img/img-picker.png" />
+                        <image id="profileImage" src="img/user_default.png" />
                      </div>
                      <input id="imageUpload" type="file" 
                             name="profile_photo" placeholder="Photo" required="" capture/>

@@ -4,6 +4,7 @@
         <meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link href='https://fonts.googleapis.com/css?family=IM Fell Double Pica' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="css/style.css">
         <title><?php echo $templateParams["titolo"]; ?></title>
@@ -43,7 +44,7 @@
                                     Remember me
                                 </label>
                                 </div>
-                                <button id="btn-login" type="submit" class="">Sign in</button>
+                                <button class="btn-rectangle" type="submit">Sign in</button>
                             </form>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>

@@ -4,7 +4,7 @@
 
         <?php foreach($templateParams["articoli"] as $item): ?>
             <div class="item-container col-md">
-                <a href="controller_item_info.php"><img title="<?php echo $item["nome"] ?>" class="item" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>"></a>
+                <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>"><img title="<?php echo $item["nome"] ?>" class="item" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>"></a>
                 <div class="label-sale">
                     SALES
                 </div>

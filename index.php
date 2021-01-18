@@ -1,10 +1,8 @@
 <?php 
-require_once("db/db.php");
-$dbh = new DbHelper("localhost", "root", "", "lolitems", 3306);
+require_once("setup.php");
 $templateParams["titolo"] = "LoLItems - Home";
 $templateParams["nome"] = "home.php";
 $templateParams["articoli"]=$dbh->getAllItems();
-var_dump($templateParams["articoli"]);
 require "template/base.php";
 
 

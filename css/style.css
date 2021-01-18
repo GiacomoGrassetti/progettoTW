@@ -1,6 +1,8 @@
 /* TEMPLATE BASE */
 a {
     color: #b5a982 !important;
+    text-decoration: none;
+    cursor:pointer;
 }
 
 a:visited {

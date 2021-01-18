@@ -1,25 +1,21 @@
 <div class="item-info-container">
     <div class="item-info-container justify-content-center text-center pt-2">
         <div id="img-info-container">
-            <img title="Ravenous Hydra" class="img-item-info" src="img/idra_famelica.png" alt="Ravenous Hydra" style="width:30%">
+            <img title="<?php echo $templateParams["item"][0]["nome"]?>" class="img-item-info" src="<?php echo $templateParams["item"][0]["immagine"]?>" alt="Ravenous Hydra" style="width:30%">
         </div>
         <div class="item-info mx-auto row text-white align-self-center">
-            <h1 class="item-info-title display-1">Ravenous Hydra</h1>
-            <div class="col">
+            <h1 class="item-info-title display-1"><?php echo $templateParams["item"][0]["nome"]?></h1>
+            <div class="col ">
                 <ul class="list-group-flush ">
-                    <li>+20 ability haste</li>
-                    <li>+65 attack damage</li>
-                    <li>+15% omnivamp</li>
-                </ul>
+                    <?php foreach($templateParams["itemParams"] as $par): ?>
+                    <li><?php echo ($par["valore"]." ".$par["nome"]); ?></li>
+                    <?php endforeach; ?>
+                </ul>    
             </div>
             <div class="vl"></div>
             <div class="col">
                 <p style="padding: 0px 20px 0px 20px">
-                    CLEAVE deals Umbra default damage, and thus will not trigger spell effects.
-                    CLEAVE is not blocked by spell shield.
-                    CLEAVE does not trigger off of blaze damage over time or Umbra Blades.png default damage effects.
-                    CLEAVE will not trigger if the basic attack does not deal damage (e.g. when the target is Cosmic Radiance.png invulnerable 
-                    or from Guinsoo's Rageblade's Guinsoo's Rageblade's Phantom Hit), unlike Tiamat Tiamat and Titanic Hydra Titanic Hydra.
+                    <?php echo $templateParams["item"][0]["descrizione"]?>
                 </p>
             </div>
         </div>

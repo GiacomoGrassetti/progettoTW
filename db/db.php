@@ -25,7 +25,15 @@ class DbHelper{
     }
 
     public function getItemFromId($id){
-        $stmt = $this->db->prepare("SELECT * FROM oggetto where oggetto.id=?");
+        $stmt = $this->db->prepare("SELECT * FROM oggetto where oggetto.idOggetto=?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getItemSpecs($id){
+        $stmt = $this->db->prepare("SELECT statistica.nome, statistica.valore FROM statistica JOIN possiede ON possiede.idStat=statistica.idStat WHERE possiede.idOggetto=?");
         $stmt->bind_param('i',$id);
         $stmt->execute();
         $result = $stmt->get_result();

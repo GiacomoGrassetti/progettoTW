@@ -15,5 +15,21 @@ class DbHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getItemCat($id){
+        $stmt = $this->db->prepare("SELECT categoria.nome FROM categoria JOIN diviso ON diviso.idCategoria=categoria.idCategoria WHERE diviso.idOggetto=?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getItemFromId($id){
+        $stmt = $this->db->prepare("SELECT * FROM oggetto where oggetto.id=?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

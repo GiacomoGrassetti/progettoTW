@@ -39,5 +39,22 @@ class DbHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function controlEmailExist($mail){
+        $stmt = $this->db->prepare("SELECT COUNT(*) as num FROM cliente WHERE cliente.email=?");
+        $stmt->bind_param('i',$mail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result=$result->fetch_all(MYSQLI_ASSOC);
+        $tmp=$result[0]["num"];
+        $stmt = $this->db->prepare("SELECT COUNT(*) as num FROM venditore WHERE venditore.email=?");
+        $stmt->bind_param('i',$mail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result=$result->fetch_all(MYSQLI_ASSOC);
+        $tmp+=$result[0]["num"];
+
+        return ($tmp==0)?true:false;
+    }
 }
 ?>

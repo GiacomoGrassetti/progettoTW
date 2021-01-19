@@ -30,7 +30,32 @@
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputMobileNumber">Mobile number:</label>
-                            <input type="text" class="form-control" id="inputMobileNumber" placeholder="Mobile number">
+                            <input type="number" class="form-control" id="inputMobileNumber" placeholder="Mobile number">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6 form-input-reg">
+                            <label class="d-flex" for="inputPassword">Choose a password:</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                        <div class="col-sm-6 form-input-reg">
+                            <label class="d-flex" for="inputMobileNumber">Rewrite password:</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Rewrite password">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 form-group form-input-reg">
+                        <label class="d-flex">You are:</label>
+                        <div class="d-flex col-sm-6">    
+                            <input class=" form-check-input" type="radio" name="inputCostumer" id="inputCostumer" value="costumer" checked>
+                            <label class="form-check-label" for="inputCostumer">
+                                Costumer
+                            </label>
+                        </div>
+                            <div class="d-flex col-sm-6">
+                            <input class=" form-check-input" type="radio" name="inputCostumer" id="inputCostumer" value="costumer">
+                            <label class="form-check-label" for="inputCostumer">
+                                Vendor
+                            </label>
                         </div>
                     </div>
 
@@ -53,7 +78,7 @@
                             <label class="d-flex" for="inputPostalCode">Postal code:</label>
                             <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal code">
                         </div>
-                        <input id="btn-register" class="btn" type="submit" value="Submit">
+                        <input id="btn-register" class="btn mt-2" type="submit" value="Submit">
                     </div>
                 </form>
             </div>

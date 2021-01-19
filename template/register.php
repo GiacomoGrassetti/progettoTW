@@ -39,8 +39,8 @@
                             <input type="password" class="form-control" id="inputPassword" placeholder="Password">
                         </div>
                         <div class="col-sm-6 form-input-reg">
-                            <label class="d-flex" for="inputMobileNumber">Rewrite password:</label>
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Rewrite password">
+                            <label class="d-flex" for="inputPasswordCheck">Rewrite password:</label>
+                            <input type="password" class="form-control" id="inputPasswordCheck" placeholder="Rewrite password">
                         </div>
                     </div>
                     <div class="col-sm-12 form-group form-input-reg">
@@ -52,8 +52,8 @@
                             </label>
                         </div>
                             <div class="d-flex col-sm-6">
-                            <input class=" form-check-input" type="radio" name="inputCostumer" id="inputCostumer" value="costumer">
-                            <label class="form-check-label" for="inputCostumer">
+                            <input class=" form-check-input" type="radio" name="inputVendor" id="inputVendor" value="costumer">
+                            <label class="form-check-label" for="inputVendor">
                                 Vendor
                             </label>
                         </div>
@@ -78,8 +78,8 @@
                             <label class="d-flex" for="inputPostalCode">Postal code:</label>
                             <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal code">
                         </div>
-                        <input id="btn-register" class="btn mt-2" type="submit" value="Submit">
                     </div>
+                    <button id="btn-register" class="btn mt-2 text-center" type="submit" value="Submit">Submit</button>
                 </form>
             </div>
         </div>

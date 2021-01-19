@@ -1,4 +1,16 @@
 /* TEMPLATE BASE */
+#btn-to-top {
+    display: inline-block;
+    background-color: #674f26;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;  
+}
+
 a {
     color: #b5a982 !important;
     text-decoration: none;

@@ -1,9 +1,7 @@
 <div id="item-list" class="container-fluid mt-2">
     <div class="col-sm-12 col-md-12 row">
-
-
         <?php foreach($templateParams["articoli"] as $item): ?>
-            <div class="item-container col-md">
+            <div class="item-container col-md-2">
                 <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>"><img title="<?php echo $item["nome"] ?>" class="item" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>"></a>
                 <div class="label-sale">
                     SALES
@@ -23,12 +21,8 @@
                         <a href="#"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
                     </div>
                 </div>
-            </div>     
-        <?php endforeach; ?>
-              
-
-                    
-            
+            </div>
+        <?php endforeach; ?>  
     </div>
 </div>
 

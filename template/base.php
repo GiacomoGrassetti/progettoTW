@@ -104,6 +104,14 @@
             }
         ?>
         </main>
+        
+        <!--BUTTON TO TOP-->
+        <div id="btn-to-top" class="align-items-center">
+            <a href="#header"><i class="fas fa-angle-up"></i></a><br>
+            <a href="#footer"><i class="fas fa-angle-down"></i></a>
+        </div>
+        
+        <!---->
         <div id="footer" class="container-fluid">
             <div id="footer-title" class="row">
                 <div class="col-md-2">
@@ -147,3 +155,4 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/js-main.js"></script>

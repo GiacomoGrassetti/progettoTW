@@ -7,7 +7,7 @@
             <h1 class="item-info-title display-1"><?php echo $templateParams["item"][0]["nome"]?></h1>
             <div class="col ">
                 <ul class="list-group-flush ">
-                    <?php foreach($templateParams["itemParams"] as $par): ?>
+                    <?php foreach($templateParams["itemParams"] as $par):?>
                     <li><?php echo ($par["valore"]." ".$par["nome"]); ?></li>
                     <?php endforeach; ?>
                 </ul>    

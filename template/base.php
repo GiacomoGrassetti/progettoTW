@@ -7,6 +7,8 @@
         <link href='https://fonts.googleapis.com/css?family=IM Fell Double Pica' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="sha512.js"></script>
+        <script type="text/javascript" src="forms.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
     </head>
     <body>
@@ -29,20 +31,20 @@
                         </a>
                         <!--DROPDOWN LOGIN-->
                         <div class="dropdown-menu box-login bubble">
-                            <form class="px-4 py-3">
+                            <form id="form-login" class="px-4 py-3" method="post" action="process_login.php">
                                 <div class="form-group">
                                     <label for="exampleDropdownFormEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Enter your email">
+                                    <input type="email" class="form-control" name="inputEmail" id="exampleDropdownFormEmail1" placeholder="Enter your email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleDropdownFormPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                    <input type="password" class="form-control" name="inputPassword" id="exampleDropdownFormPassword1" placeholder="Password">
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="dropdownCheck">
                                     <label class="form-check-label" for="dropdownCheck">Remember me</label>
                                 </div>
-                                <button class="btn-rectangle" type="submit">Sign in</button>
+                                <button class="btn-rectangle" type="submit" onclick="formhash(this.form, this.form.password);">Sign in</button>
                             </form>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>

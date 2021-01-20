@@ -4,7 +4,6 @@
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
             <div class="px-2">
                 <form action="regist_user.php" method="post" class="justify-content-center">
-                   
                     <div id="profile-container" >
                         <image id="profileImage" src="img/user_default.png" />
                      </div>
@@ -84,7 +83,7 @@
             </div>
         </div>
     </div>
-    <div id="gradient-bottom"></div>
+    <div class="gradient-bottom"></div>
 </div>
 
 <script>

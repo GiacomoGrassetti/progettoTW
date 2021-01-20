@@ -21,5 +21,5 @@
         </div>
         <button type="submit" class="btn-rectangle mt-4">Add to cart</button>
     </div>
-    <div id="gradient-bottom"></div>
+    <div class="gradient-bottom"></div>
 </div>

@@ -12,15 +12,10 @@
     $password = hash('sha512', $password.$random_salt);
     $tmp = $_POST;
     $tmp["p"] = $password; 
+    //var_dump($tmp);
     // Inserisci a questo punto il codice SQL per eseguire la INSERT nel tuo database
     // Assicurati di usare statement SQL 'prepared'.
     $stmt = $dbh->getUserRegister($tmp, $random_salt);
-    
-    /*if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {    
-        $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt); 
-        // Esegui la query ottenuta.
-        $insert_stmt->execute();
-    }*/
-   
+
 
 ?>

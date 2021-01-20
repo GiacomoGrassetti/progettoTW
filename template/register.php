@@ -45,13 +45,13 @@
                     <div class="col-sm-12 form-group form-input-reg">
                         <label class="d-flex">You are:</label>
                         <div class="d-flex col-sm-6">    
-                            <input class=" form-check-input" type="radio" name="inputRole" id="inputCostumer" value="costumer" checked>
-                            <label class="form-check-label" for="inputCostumer">
-                                Costumer
+                            <input class=" form-check-input" type="radio" name="inputRole" id="inputCustomer" value="customer" checked>
+                            <label class="form-check-label" for="inputCustomer">
+                                Customer
                             </label>
                         </div>
                             <div class="d-flex col-sm-6">
-                            <input class=" form-check-input" type="radio" name="inputRole" id="inputVendor" value="costumer">
+                            <input class=" form-check-input" type="radio" name="inputRole" id="inputVendor" value="vendor">
                             <label class="form-check-label" for="inputVendor">
                                 Vendor
                             </label>

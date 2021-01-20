@@ -10,23 +10,18 @@ class DbHelper{
     }
 
     public function getUserRegister($tmp, $random_salt){
-        $insert_stmt =  $this->db->prepare("INSERT INTO cliente (password, strada, citta, stato, idCliente, nome, cognome, email, telefono, immagine, codP, salt)
-                                         VALUES (?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
-        $insert_stmt->bind_param('sssssssssss',
-        $tmp["p"],
-         $tmp["address"],
-          $tmp["city"],
-           $tmp["state"],
-           $tmp["firstName"],  
-           $tmp["lastName"],
-            $tmp["email"],
-             $tmp["inputMobileNumber"],
-              $tmp["profile_photo"],
-              $tmp["postalCode"],
-               $random_salt); 
+        
+        if($tmp["inputRole"] == "customer"){
+            $insert_stmt =  $this->db->prepare("INSERT INTO cliente (password, strada, citta, stato, idCliente, nome, cognome, email, telefono, immagine, codP, salt)
+                                            VALUES (?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
+        }else{
+            var_dump($tmp);
+            $insert_stmt =  $this->db->prepare("INSERT INTO venditore (password, strada, citta, stato, idVenditore, nome, cognome, email, telefono, immagine, codP, salt)
+                                            VALUES (?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
+        }
+        $insert_stmt->bind_param('sssssssssss',$tmp["p"],$tmp["address"],$tmp["city"],$tmp["state"],$tmp["firstName"],$tmp["lastName"],$tmp["email"],$tmp["inputMobileNumber"],$tmp["profile_photo"],$tmp["postalCode"],$random_salt); 
         // Esegui la query ottenuta.
         return $insert_stmt->execute();
-
     }
 
     public function getUserLogin($email){

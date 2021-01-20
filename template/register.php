@@ -3,7 +3,7 @@
       <div class="row text-white">
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
             <div class="px-2">
-                <form action="" class="justify-content-center">
+                <form action="regist_user.php" method="post" class="justify-content-center">
                    
                     <div id="profile-container" >
                         <image id="profileImage" src="img/user_default.png" />
@@ -16,27 +16,27 @@
                     <div class="row form-group">
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputFirstname">First name</label>
-                            <input type="text" class="form-control" id="inputFirstname" placeholder="First name">
+                            <input type="text" class="form-control" id="inputFirstname" name="firstName" placeholder="First name">
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputLastname">Last name</label>
-                            <input type="text" class="form-control" id="inputLastname" placeholder="Last name">
+                            <input type="text" class="form-control" id="inputLastname" name="lastName" placeholder="Last name">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputEmail">Email address:</label>
-                            <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                            <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Email">
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputMobileNumber">Mobile number:</label>
-                            <input type="number" class="form-control" id="inputMobileNumber" placeholder="Mobile number">
+                            <input type="number" class="form-control" id="inputMobileNumber" name="phoneNumber" placeholder="Mobile number">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputPassword">Choose a password:</label>
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="inputPassword" name="psw" placeholder="Password">
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputPasswordCheck">Rewrite password:</label>
@@ -46,13 +46,13 @@
                     <div class="col-sm-12 form-group form-input-reg">
                         <label class="d-flex">You are:</label>
                         <div class="d-flex col-sm-6">    
-                            <input class=" form-check-input" type="radio" name="inputCostumer" id="inputCostumer" value="costumer" checked>
+                            <input class=" form-check-input" type="radio" name="inputRole" id="inputCustomer" value="costumer" checked>
                             <label class="form-check-label" for="inputCostumer">
                                 Costumer
                             </label>
                         </div>
                             <div class="d-flex col-sm-6">
-                            <input class=" form-check-input" type="radio" name="inputVendor" id="inputVendor" value="costumer">
+                            <input class=" form-check-input" type="radio" name="inputRole" id="inputVendor" value="vendor">
                             <label class="form-check-label" for="inputVendor">
                                 Vendor
                             </label>
@@ -64,19 +64,19 @@
                     <div class="row form-group">
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputAddress">Address:</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                            <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address">
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputCity">City:</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="City">
+                            <input type="text" class="form-control" id="inputCity" name="city" placeholder="City">
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputState">State:</label>
-                            <input type="text" class="form-control" id="inputState" placeholder="State">
+                            <input type="text" class="form-control" id="inputState" name="state" placeholder="State">
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputPostalCode">Postal code:</label>
-                            <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal code">
+                            <input type="text" class="form-control" id="inputPostalCode" name="postalCode" placeholder="Postal code">
                         </div>
                     </div>
                     <button id="btn-register" class="btn mt-2 text-center" type="submit" value="Submit">Submit</button>

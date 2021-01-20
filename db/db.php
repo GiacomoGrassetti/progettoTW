@@ -9,6 +9,41 @@ class DbHelper{
         }
     }
 
+    public function getUserRegister($tmp, $random_salt){
+        $insert_stmt =  $this->db->prepare("INSERT INTO cliente (password, strada, citta, stato, idCliente, nome, cognome, email, telefono, immagine, codP, salt)
+                                         VALUES (?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
+        $insert_stmt->bind_param('sssssssssss',
+        $tmp["p"],
+         $tmp["address"],
+          $tmp["city"],
+           $tmp["state"],
+           $tmp["firstName"],  
+           $tmp["lastName"],
+            $tmp["email"],
+             $tmp["inputMobileNumber"],
+              $tmp["profile_photo"],
+              $tmp["postalCode"],
+               $random_salt); 
+        // Esegui la query ottenuta.
+        return $insert_stmt->execute();
+
+    }
+
+    public function getUserLogin($email){
+        $stmt = $this->db->prepare("SELECT idCliente, email, password, salt FROM cliente WHERE email = ? LIMIT 1");
+        $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
+        $stmt->execute(); // esegue la query appena creata.
+        $stmt->store_result();
+        if($stmt->num_rows == 1){    
+            $stmt->bind_result($user_id, $username, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
+            $stmt->fetch();
+            $tmp = array("user_id" => $user_id, "username" => $username, "password" => $db_password, "salt" => $salt);
+            return $tmp;
+        }else{
+            return null;
+        }
+    }
+
     public function getAllItems(){
         $stmt = $this->db->prepare("SELECT * FROM oggetto");
         $stmt->execute();

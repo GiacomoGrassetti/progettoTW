@@ -8,7 +8,6 @@ function formhash(form, password) {
     p.value = hex_sha512(password.value);
     // Assicurati che la password non venga inviata in chiaro.
     password.value = "";
-    alert("ciao");
     // Come ultimo passaggio, esegui il 'submit' del form.
     form.submit();
  }

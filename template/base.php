@@ -7,8 +7,8 @@
         <link href='https://fonts.googleapis.com/css?family=IM Fell Double Pica' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="sha512.js"></script>
-        <script type="text/javascript" src="forms.js"></script>
+        <script type="text/javascript" src="js/sha512.js"></script>
+        <script type="text/javascript" src="js/forms.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
     </head>
     <body>
@@ -34,11 +34,11 @@
                             <form id="form-login" class="px-4 py-3" method="post" action="process_login.php">
                                 <div class="form-group">
                                     <label for="exampleDropdownFormEmail1">Email address</label>
-                                    <input type="email" class="form-control" name="inputEmail" id="exampleDropdownFormEmail1" placeholder="Enter your email">
+                                    <input type="email" class="form-control" name="inputEmail" id="email" placeholder="Enter your email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleDropdownFormPassword1">Password</label>
-                                    <input type="password" class="form-control" name="inputPassword" id="exampleDropdownFormPassword1" placeholder="Password">
+                                    <input type="password" class="form-control" name="inputPassword" id="password" placeholder="Password">
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="dropdownCheck">
@@ -155,4 +155,3 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="js/js-main.js"></script>

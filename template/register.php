@@ -78,7 +78,7 @@
                             <input type="text" class="form-control" id="inputPostalCode" name="postalCode" placeholder="Postal code">
                         </div>
                     </div>
-                    <button id="btn-register" class="btn mt-2 text-center" type="submit">Submit</button>
+                    <button id="btn-register" class="btn mt-2 text-center" type="submit" onclick="formhash(this.form, this.form.inputPassword);">Submit</button>
                 </form>
             </div>
         </div>

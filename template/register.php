@@ -3,8 +3,7 @@
       <div class="row text-white">
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
             <div class="px-2">
-                <form action="" class="justify-content-center">
-                   
+                <form action="controller_policy.php" class="justify-content-center" method="post">
                     <div id="profile-container" >
                         <image id="profileImage" src="img/user_default.png" />
                      </div>
@@ -30,7 +29,7 @@
                         </div>
                         <div class="col-sm-6 form-input-reg">
                             <label class="d-flex" for="inputMobileNumber">Mobile number:</label>
-                            <input type="number" class="form-control" id="inputMobileNumber" placeholder="Mobile number">
+                            <input type="tel" class="form-control" id="inputMobileNumber" name="inputMobileNumber" placeholder="0123456789" pattern="[0-9]{10}">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -46,13 +45,13 @@
                     <div class="col-sm-12 form-group form-input-reg">
                         <label class="d-flex">You are:</label>
                         <div class="d-flex col-sm-6">    
-                            <input class=" form-check-input" type="radio" name="inputCostumer" id="inputCostumer" value="costumer" checked>
+                            <input class=" form-check-input" type="radio" name="inputRole" id="inputCostumer" value="costumer" checked>
                             <label class="form-check-label" for="inputCostumer">
                                 Costumer
                             </label>
                         </div>
                             <div class="d-flex col-sm-6">
-                            <input class=" form-check-input" type="radio" name="inputVendor" id="inputVendor" value="costumer">
+                            <input class=" form-check-input" type="radio" name="inputRole" id="inputVendor" value="costumer">
                             <label class="form-check-label" for="inputVendor">
                                 Vendor
                             </label>
@@ -79,7 +78,7 @@
                             <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal code">
                         </div>
                     </div>
-                    <button id="btn-register" class="btn mt-2 text-center" type="submit" value="Submit">Submit</button>
+                    <button id="btn-register" class="btn mt-2 text-center" type="submit">Submit</button>
                 </form>
             </div>
         </div>

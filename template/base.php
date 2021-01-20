@@ -28,7 +28,7 @@
                             <h6><i  class="fas fa-user"></i> Login | </h6>
                         </a>
                         <!--DROPDOWN LOGIN-->
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu box-login bubble">
                             <form class="px-4 py-3">
                                 <div class="form-group">
                                     <label for="exampleDropdownFormEmail1">Email address</label>
@@ -40,15 +40,13 @@
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                    <label class="form-check-label" for="dropdownCheck">
-                                    Remember me
-                                </label>
+                                    <label class="form-check-label" for="dropdownCheck">Remember me</label>
                                 </div>
                                 <button class="btn-rectangle" type="submit">Sign in</button>
                             </form>
                             <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
-                                <a class="dropdown-item" href="#">Forgot password?</a>
+                            <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
+                            <a class="dropdown-item" href="#">Forgot password?</a>
                         </div>
                         <h6><a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Cart</a></h6>
                     </span>

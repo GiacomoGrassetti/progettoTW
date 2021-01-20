@@ -2,7 +2,18 @@
     <div class="col-sm-12 col-md-12 row">
         <?php foreach($templateParams["articoli"] as $item): ?>
             <div class="item-container col-md-2">
-                <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>"><img title="<?php echo $item["nome"] ?>" class="item" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>"></a>
+                <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>">
+                    <div class="opacity">
+                        <img title="<?php echo $item["nome"] ?>" class="item-img" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>">
+                        <div class="stats-img d-flex justify-content-center align-items-center">
+                            <ul>
+                                <li>aaa</li>
+                                <li>aaa</li>
+                                <li>aaa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
                 <div class="label-sale">
                     SALES
                 </div>

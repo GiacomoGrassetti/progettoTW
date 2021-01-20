@@ -9,6 +9,7 @@
     position: fixed;
     bottom: 30px;
     right: 30px;  
+    z-index: 3;
 }
 
 a {
@@ -96,13 +97,79 @@ a:hover {
     transition: 2s ease;
 }
 
+.box-login {
+    border: 1px solid #674f26;
+    position: relative;
+}
+
+.bubble:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #674f26;
+    top: -23px;
+}
+  
+.bubble:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    top: -18px;
+}
+
 /*TEMPLATE HOME*/
 .item-container {
     position: relative;
 }
-.item {
+
+.item-img {
     width: 100%;
     height: auto;
+}
+
+.item-img:hover{
+    opacity: 0.2;
+    color: white;
+}
+
+.stats-img {
+    width: 100%;
+    height: 100%;
+    margin: none;
+    padding: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+}
+
+.stats-img > ul{
+    padding: 0px;
+    height: min-content;
+}
+
+.stats-img > ul > li{
+    width: min-content;
+
+}
+
+.stats-img:hover {
+    background-color: rgba(4, 16, 25, 0.8);
+    color: white;
+}
+
+.opacity{
+    position: relative;
+    
 }
 
 .label-sale{
@@ -128,6 +195,10 @@ a:hover {
     border-left: 14px solid #bd8448;
     border-right: 14px solid #bd8448;
     border-bottom: 8px solid transparent;
+}
+
+.spec-onOver {
+
 }
 
 /*TEMPLATE ITEM_INFO*/
@@ -223,7 +294,6 @@ ul{
 }
 
 #gradient-bottom {
-
     width: 100%;
     height: 100px;
     background: linear-gradient(to top, rgba(4, 16, 25, 1), rgba(0, 0, 0, 0));
@@ -239,5 +309,4 @@ ul{
     /* Cut the corner */
     background: linear-gradient(-45deg, transparent 7px, #674f26 7px);
     transition: 2s ease;
-    
 }

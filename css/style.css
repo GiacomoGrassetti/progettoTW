@@ -172,12 +172,34 @@ a:hover {
 .stats-img > ul{
     padding: 0px;
     height: min-content;
+    width:200px
+    
+
+
 }
 
 .stats-img > ul > li{
     width: min-content;
+    margin:0px;
+    white-space: nowrap;
+    font-size: 1vmax;
+
 
 }
+
+@media screen and (max-width: 767px) {
+    .stats-img > ul > li{
+        width: min-content;
+        margin:0px;
+        white-space: nowrap;
+        font-size:150%;
+        
+
+
+    }
+}
+
+
 
 .stats-img:hover {
     background-color: rgba(4, 16, 25, 0.8);

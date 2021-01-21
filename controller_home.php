@@ -7,6 +7,17 @@
         $templateParams["articoli"]=$dbh->findItem('%'.$_GET["find"].'%');
     }else{
         $templateParams["articoli"]=$dbh->getAllItems();
-    } 
+    }
+    if(!empty($templateParams["articoli"])){
+        foreach($templateParams["articoli"] as $item){
+            $ids[]= $item["idOggetto"];
+        }
+        $templateParams["stats"]=$dbh->getAllStatsFromId($ids);
+    }else{
+        $templateParams["errorval"] = "Nothing found";
+        include('controller_error.php');
+    }
+    
+
     require 'template/base.php';
 ?>

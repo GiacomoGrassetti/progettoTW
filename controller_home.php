@@ -7,6 +7,12 @@
         $templateParams["articoli"]=$dbh->findItem('%'.$_GET["find"].'%');
     }else{
         $templateParams["articoli"]=$dbh->getAllItems();
-    } 
+    }
+ 
+    foreach($templateParams["articoli"] as $item){
+        $ids[]= $item["idOggetto"];
+    }
+    $templateParams["stats"]=$dbh->getAllStatsFromId($ids);
+
     require 'template/base.php';
 ?>

@@ -126,6 +126,14 @@ a:hover {
     top: -18px;
 }
 
+.navbar-toggler{
+    background-image: url("../img/menu.png");
+    padding: 0px;
+}
+  
+
+
+
 /*TEMPLATE HOME*/
 .bgvid {
     object-fit: cover;

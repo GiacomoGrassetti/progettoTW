@@ -60,6 +60,8 @@
                             <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
                             <a class="dropdown-item" href="#">Forgot password?</a>
                         </div>
+                        <!---->
+
                         <h6 class="ml-2"><a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Cart |</a> </h6>
                         <?php 
                             if(login_check($dbh) == true){
@@ -68,14 +70,15 @@
                             <?php
                             }
                         ?>
-                        
                     </span>
                 </div>
             </div>
             <div id="navbar-container" class="d-flex justify-content-center">
                 <nav class="navbar navbar-expand-lg ">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon">
+                           
+                        </span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto">
@@ -83,11 +86,17 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 ALL ITEMS
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-menu container filter" aria-labelledby="navbarDropdown">
+                                    <div class="col-sm-12">
+                                        <form class="row" action="">
+                                            <?php foreach($templateParams["categorie"] as $item): ?>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" name="<?php echo $item["nome"];?>" type="checkbox" id="<?php echo $item["nome"];?>">
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault"><?php echo $item["nome"];?></label>
+                                                </div>
+                                            <?php endforeach; ?>  
+                                        </form>
+                                    </div>
                                 </div>
                             </li>
                             <li class="nav-item">

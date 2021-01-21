@@ -19,8 +19,8 @@
                     <a href="index.php"><img id="logo-img" class="pt-2" src="img/logo.png"/></a>
                 </div>
                 <div id="header-content-center" class="mx-auto col-sm">
-                <form class="d-flex justify-content-center mt-2">
-                    <input id="search-input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form method="get" action="controller_home.php" class="d-flex justify-content-center mt-2">
+                    <input id="search-input" class="form-control me-2" type="search" placeholder="Search" name="find" aria-label="Search">
                     <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 </div>

@@ -9,8 +9,21 @@ class DbHelper{
         }
     }
 
+    public function getLoginCheck($user_id){
+        $stmt = $this->db->prepare("SELECT password FROM cliente WHERE idCliente = ? LIMIT 1");
+        $stmt->bind_param('i', $user_id); // esegue il bind del parametro '$user_id'.
+        $stmt->execute(); // Esegue la query creata.
+        $stmt->store_result();
+        if($stmt->num_rows == 1){ 
+            $stmt->bind_result($password); // recupera le variabili dal risultato ottenuto.
+            $stmt->fetch();
+            return $password;
+        }else{
+            return null;
+        }
+    }
+
     public function getUserRegister($tmp, $random_salt){
-        
         if($tmp["inputRole"] == "customer"){
             $insert_stmt =  $this->db->prepare("INSERT INTO cliente (password, strada, citta, stato, idCliente, nome, cognome, email, telefono, immagine, codP, salt)
                                             VALUES (?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
@@ -25,14 +38,14 @@ class DbHelper{
     }
 
     public function getUserLogin($email){
-        $stmt = $this->db->prepare("SELECT idCliente, email, password, salt FROM cliente WHERE email = ? LIMIT 1");
+        $stmt = $this->db->prepare("SELECT idCliente, username, email, password, salt FROM cliente WHERE email = ? LIMIT 1");
         $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
         $stmt->execute(); // esegue la query appena creata.
         $stmt->store_result();
         if($stmt->num_rows == 1){    
-            $stmt->bind_result($user_id, $username, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
+            $stmt->bind_result($user_id,$username, $email, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
             $stmt->fetch();
-            $tmp = array("user_id" => $user_id, "username" => $username, "password" => $db_password, "salt" => $salt);
+            $tmp = array("user_id" => $user_id,"username"=>$username, "email" => $email, "password" => $db_password, "salt" => $salt);
             return $tmp;
         }else{
             return null;

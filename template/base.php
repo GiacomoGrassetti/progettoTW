@@ -27,7 +27,17 @@
                 <div id="header-login-right " class="col-sm mt-4" >
                     <span class="d-flex justify-content-center">
                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="">
-                            <h6><i  class="fas fa-user"></i> Login | </h6>
+                            <?php 
+                                if(login_check($dbh) == true){
+                            ?>  
+                                    <h6 class="ml-2"><a class="col-sm-1" href="#"><i class="fas fa-user"></i><?php echo $_SESSION["username"]." |" ?></a></h6>
+                            <?php
+                                }else{
+                            ?>  
+                                <h6><i  class="fas fa-user"></i> Login |</h6>
+                            <?php     
+                                }
+                            ?>
                         </a>
                         <!--DROPDOWN LOGIN-->
                         <div class="dropdown-menu box-login bubble">
@@ -50,7 +60,15 @@
                             <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
                             <a class="dropdown-item" href="#">Forgot password?</a>
                         </div>
-                        <h6><a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Cart</a></h6>
+                        <h6 class="ml-2"><a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Cart |</a> </h6>
+                        <?php 
+                            if(login_check($dbh) == true){
+                            ?>  
+                                <h6 class="ml-2"><a class="col-sm-1" href="process_logout.php"><i class="fas fa-sign-out-alt"></i> Logout </a> </h6>
+                            <?php
+                            }
+                        ?>
+                        
                     </span>
                 </div>
             </div>
@@ -148,9 +166,7 @@
                 </div>
             </div>
         </div>
-
     </body>
-    
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

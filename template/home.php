@@ -9,11 +9,14 @@
                 <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>">
                     <div class="opacity">
                         <img title="<?php echo $item["nome"] ?>" class="item-img" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>">
-                        <div class="stats-img d-flex justify-content-center align-items-center">
+                        <div class="stats-img d-flex justify-content-center align-items-center ">
                             <ul>
-                                <li>aaa</li>
-                                <li>aaa</li>
-                                <li>aaa</li>
+                                <?php 
+                                    $val=$templateParams["stats"][$item["idOggetto"]];
+                                    foreach($val as $st){
+                                        echo("<li>".$st["nome"]." ".$st["valore"]."</li>");
+                                    }
+                                ?>
                             </ul>
                         </div>
                     </div>

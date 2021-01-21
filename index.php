@@ -5,6 +5,11 @@ sec_session_start();
 $templateParams["titolo"] = "LoLItems - Home";
 $templateParams["nome"] = "home.php";
 $templateParams["articoli"]=$dbh->getAllItems();
+foreach($templateParams["articoli"] as $item){
+    $ids[]= $item["idOggetto"];
+}
+$templateParams["stats"]=$dbh->getAllStatsFromId($ids);
+
 /*if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
 } else {

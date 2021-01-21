@@ -76,7 +76,7 @@ class DbHelper{
     }
 
     public function getItemSpecs($id){
-        $stmt = $this->db->prepare("SELECT statistica.nome, statistica.valore FROM statistica JOIN possiede ON possiede.idStat=statistica.idStat WHERE possiede.idOggetto=?");
+        $stmt = $this->db->prepare("SELECT possiede.idOggetto, statistica.nome, statistica.valore FROM statistica JOIN possiede ON possiede.idStat=statistica.idStat WHERE possiede.idOggetto=?");
         $stmt->bind_param('i',$id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -110,6 +110,14 @@ class DbHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllStatsFromId($id){
+        
+        foreach($id as $item){
+            $res[$item]=$this->getItemSpecs($item);
+        }
+        return $res;
     }
 }
 ?>

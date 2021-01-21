@@ -8,11 +8,16 @@
     }else{
         $templateParams["articoli"]=$dbh->getAllItems();
     }
- 
-    foreach($templateParams["articoli"] as $item){
-        $ids[]= $item["idOggetto"];
+    if(!empty($templateParams["articoli"])){
+        foreach($templateParams["articoli"] as $item){
+            $ids[]= $item["idOggetto"];
+        }
+        $templateParams["stats"]=$dbh->getAllStatsFromId($ids);
+    }else{
+        $templateParams["errorval"] = "Nothing found";
+        include('controller_error.php');
     }
-    $templateParams["stats"]=$dbh->getAllStatsFromId($ids);
+    
 
     require 'template/base.php';
 ?>

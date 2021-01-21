@@ -59,6 +59,13 @@ class DbHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAllCategory(){
+        $stmt = $this->db->prepare("SELECT * FROM categoria");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getItemCat($id){
         $stmt = $this->db->prepare("SELECT categoria.nome FROM categoria JOIN diviso ON diviso.idCategoria=categoria.idCategoria WHERE diviso.idOggetto=? and (categoria.idCategoria=2 or categoria.idCategoria=8)");
         $stmt->bind_param('i',$id);

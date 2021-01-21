@@ -11,9 +11,12 @@
                         <img title="<?php echo $item["nome"] ?>" class="item-img" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>">
                         <div class="stats-img d-flex justify-content-center align-items-center">
                             <ul>
-                                <li>aaa</li>
-                                <li>aaa</li>
-                                <li>aaa</li>
+                                <li>omnivamp +20</li>
+                                <li>aaaaaaaaaaaaaaaa</li>
+                                <li>aaaaaaaaaaaaaaaa</li>
+                                <li>aaaaaaaaaaaaaaaa</li>
+                                <li>aaaaaaaaaaaaaaaa</li>
+                                <li>aaaaaaaaaaaaaaaa</li>
                             </ul>
                         </div>
                     </div>

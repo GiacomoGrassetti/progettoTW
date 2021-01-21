@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div id="navbar-container" class="d-flex justify-content-center">
-                <nav class="navbar navbar-expand-lg ">
+                <nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon">
                            

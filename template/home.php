@@ -3,7 +3,7 @@
     <video playsinline autoplay muted loop poster="img/runeterra.jpg" class="bgvid">
         <source src="img/animated-ionia.webm" type="video/webm">
     </video>
-    <div class="col-sm-12 col-md-12 row container-fluid">
+    <div class="col-sm-12 col-md-12 row container-fluid m-0">
         <?php foreach($templateParams["articoli"] as $item): ?>
             <div class="item-container col-md-2 mt-2">
                 <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>">

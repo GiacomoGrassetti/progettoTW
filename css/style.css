@@ -126,9 +126,8 @@ a:hover {
     top: -18px;
 }
 
-.navbar-toggler{
+.navbar-toggler-icon{
     background-image: url("../img/menu.png");
-    padding: 0px;
 }
   
 

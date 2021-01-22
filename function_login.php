@@ -3,7 +3,7 @@
     function login($email, $password, $dbh) {
         // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
         $stmt = $dbh->getUserLogin($email);
-        if (isset($stmt)) { 
+        if (isset($stmt)) {
             $password = hash('sha512', $password.$stmt["salt"]); // codifica la password usando una chiave univoca.
             /*var_dump($password); echo '<br>';
             var_dump($stmt["password"]);*/

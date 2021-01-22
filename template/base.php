@@ -12,7 +12,6 @@
         <title><?php echo $templateParams["titolo"]; ?></title>
     </head>
     <body>
-    <?php var_dump(unserialize($_COOKIE["cart"], ["allowed_classes" => false]));?>
     <!--INIZIO HEADER-->
         <div id="header" class="container-fluid">
             <div id="header-title" class="row">

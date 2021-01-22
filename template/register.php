@@ -56,6 +56,7 @@
                                 Vendor
                             </label>
                         </div>
+                        
                     </div>
 
                     <br><h2 class="d-flex">Address:</h2><br>

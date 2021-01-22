@@ -6,7 +6,7 @@
     $templateParams["categorie"]=$dbh->getAllCategory();
 
     $cookie_name = "cart";
-    if(!isset($_COOKIE["cart"])){
+    if(!isset($_COOKIE["cart"]) || !$_COOKIE["cart"]){
         $cookie_values = [];
         setcookie($cookie_name, serialize($cookie_values), time() + (86400 * 30), "/");
     }

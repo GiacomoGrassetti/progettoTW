@@ -25,14 +25,13 @@ class DbHelper{
 
     public function getUserRegister($tmp, $random_salt){
         if($tmp["inputRole"] == "customer"){
-            $insert_stmt =  $this->db->prepare("INSERT INTO cliente (password, strada, citta, stato, idCliente, nome, cognome, email, telefono, immagine, codP, salt)
-                                            VALUES (?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
+            $insert_stmt =  $this->db->prepare("INSERT INTO cliente (username, password, strada, citta, stato, idCliente, nome, cognome, email, telefono, immagine, codP, salt)
+                                            VALUES (?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
         }else{
-            var_dump($tmp);
-            $insert_stmt =  $this->db->prepare("INSERT INTO venditore (password, strada, citta, stato, idVenditore, nome, cognome, email, telefono, immagine, codP, salt)
-                                            VALUES (?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
+            $insert_stmt =  $this->db->prepare("INSERT INTO venditore (username, password, strada, citta, stato, idVenditore, nome, cognome, email, telefono, immagine, codP, salt)
+                                            VALUES (?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
         }
-        $insert_stmt->bind_param('sssssssssss',$tmp["p"],$tmp["address"],$tmp["city"],$tmp["state"],$tmp["firstName"],$tmp["lastName"],$tmp["email"],$tmp["inputMobileNumber"],$tmp["profile_photo"],$tmp["postalCode"],$random_salt); 
+        $insert_stmt->bind_param('ssssssssssss',$tmp["firstName"],$tmp["p"],$tmp["address"],$tmp["city"],$tmp["state"],$tmp["firstName"],$tmp["lastName"],$tmp["email"],$tmp["inputMobileNumber"],$tmp["profile_photo"],$tmp["postalCode"],$random_salt); 
         // Esegui la query ottenuta.
         return $insert_stmt->execute();
     }
@@ -43,7 +42,7 @@ class DbHelper{
         $stmt->execute(); // esegue la query appena creata.
         $stmt->store_result();
         if($stmt->num_rows == 1){    
-            $stmt->bind_result($user_id,$username, $email, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
+            $stmt->bind_result($user_id, $username, $email, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
             $stmt->fetch();
             $tmp = array("user_id" => $user_id,"username"=>$username, "email" => $email, "password" => $db_password, "salt" => $salt);
             return $tmp;

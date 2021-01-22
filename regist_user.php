@@ -16,6 +16,6 @@
     // Inserisci a questo punto il codice SQL per eseguire la INSERT nel tuo database
     // Assicurati di usare statement SQL 'prepared'.
     $stmt = $dbh->getUserRegister($tmp, $random_salt);
-
+    require("index.php");
 
 ?>

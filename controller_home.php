@@ -13,11 +13,12 @@
             $ids[]= $item["idOggetto"];
         }
         $templateParams["stats"]=$dbh->getAllStatsFromId($ids);
+        require 'template/base.php';
     }else{
         $templateParams["errorval"] = "Nothing found";
         include('controller_error.php');
     }
     
 
-    require 'template/base.php';
+    
 ?>

@@ -1,6 +1,11 @@
 <?php
     require_once("function_login.php");
     sec_session_start();
+    
+    $data = unserialize($_COOKIE["cart"], ["allowed_classes" => false]);
+    unset($data);
+    $data = array();
+    setcookie($cookie_name, serialize($data), time() + (86400 * 30), "/");
     // Elimina tutti i valori della sessione.
     $_SESSION = array();
     // Recupera i parametri di sessione.

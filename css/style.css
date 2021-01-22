@@ -1,4 +1,13 @@
 /* TEMPLATE BASE */
+    @font-face { font-family: LOL-font; src: url('../font/beaufortforlol-regular.otf'); } 
+    @font-face { font-family: LOL-font; font-weight: bold; src: url('../font/beaufortforlol-bold.otf');}
+    @font-face { font-family: LOL-font; font-style: italic; src: url('../font/beaufortforlol-italic.otf'); }
+    @font-face { font-family: LOL-font-bold-italic; src: url('../font/beaufortforlol-bolditalic.otf');}
+
+body{
+    font-family: LOL-font;
+}
+
 #btn-to-top {
     display: inline-block;
     background-color: #674f26;
@@ -126,9 +135,8 @@ a:hover {
     top: -18px;
 }
 
-.navbar-toggler{
+.navbar-toggler-icon{
     background-image: url("../img/menu.png");
-    padding: 0px;
 }
   
 
@@ -194,9 +202,6 @@ a:hover {
         margin:0px;
         white-space: nowrap;
         font-size:150%;
-        
-
-
     }
 }
 
@@ -357,4 +362,21 @@ ul{
     /* Cut the corner */
     background: linear-gradient(-45deg, transparent 7px, #674f26 7px);
     transition: 2s ease;
+}
+
+/*TEMPLATE CART*/
+.cart-section{
+    background-image: url("../img/bg-cart.png");
+}
+
+.title-page{
+    font-family: LOL-font-bold-italic;
+    text-transform: uppercase;
+}
+
+table{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+td {
+    height: 77px;
 }

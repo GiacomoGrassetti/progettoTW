@@ -1,9 +1,9 @@
-<div id="item-list" class="">
+<section id="item-list" class="">
     <div class="gradient-top"></div>
     <video playsinline autoplay muted loop poster="img/runeterra.jpg" class="bgvid">
         <source src="img/animated-ionia.webm" type="video/webm">
     </video>
-    <div class="col-sm-12 col-md-12 row container-fluid">
+    <div class="col-sm-12 col-md-12 row container-fluid m-0">
         <?php foreach($templateParams["articoli"] as $item): ?>
             <div class="item-container col-md-2 mt-2">
                 <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>">
@@ -38,12 +38,12 @@
                         </p>
                     </div>
                     <div class="col-sm col-md d-flex justify-content-center align-self-center">
-                        <a href="#"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
+                        <a href="add_to_cart.php?id=<?php echo $item["idOggetto"];?>"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>  
     </div>
     <div class="gradient-bottom"></div>
-</div>
+</section>
 

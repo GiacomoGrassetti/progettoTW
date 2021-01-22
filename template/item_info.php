@@ -1,4 +1,4 @@
-<div class="item-info-container">
+<section class="item-info-container">
     <div class="item-info-container justify-content-center text-center pt-2">
         <div id="img-info-container">
             <img title="<?php echo $templateParams["item"][0]["nome"]?>" class="img-item-info" src="<?php echo $templateParams["item"][0]["immagine"]?>" alt="Ravenous Hydra" style="width:30%">
@@ -18,8 +18,10 @@
                     <?php echo $templateParams["item"][0]["descrizione"]?>
                 </p>
             </div>
+            
         </div>
+        <div class="text-white mx-auto item-info justify-content-center text-center">categorie</div>
         <button type="submit" class="btn-rectangle mt-4">Add to cart</button>
     </div>
     <div class="gradient-bottom"></div>
-</div>
+</section>

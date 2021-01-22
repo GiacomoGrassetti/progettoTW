@@ -4,7 +4,6 @@
     if(isset($_POST['inputEmail'], $_POST['p'])) { 
         $email = $_POST['inputEmail'];
         $password = $_POST['p']; // Recupero la password criptata.
-        var_dump($_POST);
         if(login($email, $password, $dbh) == true) {
             // Login eseguito
             echo 'Success: You have been logged in!';
@@ -12,7 +11,8 @@
             header('Location: ./');
         } else {
             // Login fallito
-            header('Location: ./controller_error.php?error=Wrong login , try again!');
+            $templateParams["errorval"] = "Bad login, try again!";
+            include('controller_error.php');
         }
     } else { 
     // Le variabili corrette non sono state inviate a questa pagina dal metodo POST.

@@ -1,4 +1,4 @@
-<div id="item-list" class="">
+<section id="item-list" class="">
     <div class="gradient-top"></div>
     <video playsinline autoplay muted loop poster="img/runeterra.jpg" class="bgvid">
         <source src="img/animated-ionia.webm" type="video/webm">
@@ -38,12 +38,12 @@
                         </p>
                     </div>
                     <div class="col-sm col-md d-flex justify-content-center align-self-center">
-                        <a href="#"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
+                        <a href="add_to_cart.php?id=<?php echo $item["idOggetto"];?>"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>  
     </div>
     <div class="gradient-bottom"></div>
-</div>
+</section>
 

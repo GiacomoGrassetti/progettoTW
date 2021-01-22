@@ -1,4 +1,4 @@
-<div class="conteiner-fluid">
+<section>
     <div class="row justify-content-center align-items-center">
         <div class="gradient-top"></div>
             <img style="width:20%; height:20%"src="img/poro_error.png" alt="poro error">
@@ -6,7 +6,7 @@
             <h2 class="text-center display-4"><?php echo $templateParams["errorval"];?></h2>
         <div class="gradient-bottom"></div>
     </div>
-</div>
+</section>
     
 <!--Ops, something went wrong!-->
 

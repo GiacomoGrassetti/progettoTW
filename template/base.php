@@ -12,6 +12,7 @@
         <title><?php echo $templateParams["titolo"]; ?></title>
     </head>
     <body>
+    <?php var_dump(unserialize($_COOKIE["cart"], ["allowed_classes" => false]));?>
     <!--INIZIO HEADER-->
         <div id="header" class="container-fluid">
             <div id="header-title" class="row">
@@ -34,7 +35,7 @@
                             <?php
                                 }else{
                             ?>  
-                                <h6><i  class="fas fa-user"></i> Login |</h6>
+                                <h6><i  class="fas fa-user"></i> LOGIN |</h6>
                             <?php     
                                 }
                             ?>
@@ -54,7 +55,7 @@
                                     <input type="checkbox" class="form-check-input" id="dropdownCheck">
                                     <label class="form-check-label" for="dropdownCheck">Remember me</label>
                                 </div>
-                                <button class="btn-rectangle" type="submit" onclick="formhash(this.form, this.form.password);">Sign in</button>
+                                <button class="btn-rectangle" type="submit" onclick="formhash(this.form, this.form.password);">SIGN IN</button>
                             </form>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
@@ -62,11 +63,11 @@
                         </div>
                         <!---->
 
-                        <h6 class="ml-2"><a class="col-sm-1" href="#"><i class="fas fa-shopping-cart"></i> Cart |</a> </h6>
+                        <h6 class="ml-2"><a class="col-sm-1" href="controller_cart.php"><i class="fas fa-shopping-cart"></i> CART |</a> </h6>
                         <?php 
                             if(login_check($dbh) == true){
                             ?>  
-                                <h6 class="ml-2"><a class="col-sm-1" href="process_logout.php"><i class="fas fa-sign-out-alt"></i> Logout </a> </h6>
+                                <h6 class="ml-2"><a class="col-sm-1" href="process_logout.php"><i class="fas fa-sign-out-alt"></i> LOGOUT </a> </h6>
                             <?php
                             }
                         ?>

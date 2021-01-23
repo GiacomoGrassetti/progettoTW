@@ -7,6 +7,7 @@
         if(login($email, $password, $dbh) == true) {
             // Login eseguito
             echo 'Success: You have been logged in!';
+            
             $_SESSION['loggedin'] = true;
             header('Location: ./');
         } else {

@@ -31,7 +31,12 @@
                             <?php
                                 $cat=$dbh->getItemCat($item["idOggetto"]);
                                 foreach($cat as $val){
-                                    echo $val["nome"] . "<br>";
+                                    if(!($val["idCategoria"]==8 || $val["idCategoria"]==2)){
+                                        echo '<p class="idCat" hidden>'.$val["idCategoria"] . "</p>";
+                                    }else{
+                                        echo $val["nome"] . "<br>";
+                                        echo '<p class="idCat" hidden>'.$val["idCategoria"] . "</p>";
+                                    }
                                 }
                             ?>
                             <br><?php echo $item["prezzo"] ?>€

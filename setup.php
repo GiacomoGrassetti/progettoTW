@@ -12,9 +12,5 @@
         setcookie($cookie_name, serialize($cookie_values), time() + (86400 * 30), "/");
     }
     
-    if(!isset($_COOKIE["filter"])){
-        $cookie_name = "filter";
-        $cookie_values = [];
-        setcookie($cookie_name, serialize($cookie_values), time() + (86400 * 30), "/");
-    }
+
 ?>

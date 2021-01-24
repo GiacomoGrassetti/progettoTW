@@ -21,9 +21,11 @@
                         </div>
                     </div>
                 </a>
-                <div class="label-sale">
-                    SALES
-                </div>
+                <?php if(isset($item["idSconto"])): ?>
+                    <div class="label-sale">
+                        SALES 
+                    </div>
+                <?php endif; ?>
                 <div class="row col-sm-12 item-pre-info">
                     <div class="col-sm-9 col-md-9 ">
                         <p>

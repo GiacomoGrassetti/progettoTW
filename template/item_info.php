@@ -20,7 +20,7 @@
             </div>
             
         </div>
-        <div class="text-white mx-auto item-info justify-content-center text-center">categorie</div>
+        <div class="text-white mx-auto item-info justify-content-center text-center"><p><?php foreach($templateParams["itemCat"] as $cat){echo " | ".$cat["nome"]." | ";} ?></p></div>
         <button type="submit" class="btn-rectangle mt-4">Add to cart</button>
     </div>
     <div class="gradient-bottom"></div>

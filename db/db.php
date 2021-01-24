@@ -151,26 +151,6 @@ class DbHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function controlEmailExist($mail,$type){
-        var_dump($type);
-        $stmt = $this->db->prepare("SELECT COUNT(*) as num FROM cliente WHERE cliente.email=?");
-        $stmt->bind_param('i',$mail);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $result=$result->fetch_all(MYSQLI_ASSOC);
-        var_dump($result);
-
-        $tmp=$result[0]["num"];
-        $stmt = $this->db->prepare("SELECT COUNT(*) as num FROM venditore WHERE venditore.email=?");
-        $stmt->bind_param('i',$mail);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $result=$result->fetch_all(MYSQLI_ASSOC);
-        var_dump($result);
-        $tmp+=$result[0]["num"];
-        var_dump($tmp);
-        return ($tmp==0)?true:false;
-    }
 
     public function findItem($name){
         $stmt = $this->db->prepare("SELECT * FROM oggetto WHERE oggetto.nome like ?");
@@ -186,6 +166,59 @@ class DbHelper{
             $res[$item]=$this->getItemSpecs($item);
         }
         return $res;
+    }
+
+    public function getItemOfVendor($id){
+        $stmt=$this->db->prepare("SELECT oggetto.nome, oggetto.quantita, oggetto.idOggetto, oggetto.prezzo, oggetto.immagine, oggetto.descrizione FROM oggetto join Venditore on venditore.idVenditore = oggetto.idVenditore where venditore.idVenditore=?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getSalesOfVendor($id){
+        $stmt=$this->db->prepare("SELECT sconto.idSconto, sconto.valore, sconto.dataEmissione, sconto.dataScadenza from sconto JOIN venditore ON venditore.idVenditore = sconto.idVenditore where venditore.idVenditore=?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function addNewObject($obj,$cat,$specs){
+        $obj["immagine"]="a.png";
+        $obj["nome"]="ssss";
+        $obj["descrizione"]="sssssssssssssssssssssssssss";
+        $obj["quantita"]=9;
+        $obj["idSconto"]=null;
+        $obj["idVenditore"]=3;
+        $obj["prezzo"]=5.7;
+        $cat["id"]=5;
+        $cat["id"]=9;
+        $spec["nome"]="sdsdsds";
+        $spec["valore"]="4564";
+        $specs[]=$spec;
+        $stmt=$this->db->prepare("INSERT INTO oggetto(idOggetto,immagine,descrizione,nome,quantita,idSconto,idVenditore,prezzo) VALUES(NULL,?,?,?,?,?,?,?)");
+        $stmt->bind_param('sssiiid',$obj["immagine"],$obj["descrizione"],$obj["nome"],$obj["quantita"],$obj["idSconto"],$obj["idVenditore"],$obj["prezzo"]);
+        if($stmt->execute()){
+            $stmtcat=$this->db->prepare("INSERT INTO diviso(idOggetto,idCategoria) VALUES (?,?)");
+            foreach($cat as $category){
+                $stmtcat->bind_param('ii', $stmt->insert_id, $category);
+                $stmtcat->execute();
+            }
+            $stmtspec=$this->db->prepare("INSERT INTO statistica(idStat,valore,nome) VALUES (NULL,?,?)");
+            $stmtref=$this->db->prepare("INSERT INTO possiede(idOggetto,idStat) VALUES (?,?)");
+            foreach($specs as $spec){
+                $stmtspec->bind_param('ss', $spec["valore"],$spec["nome"]);
+                if($stmtspec->execute()){
+                    $stmtref->bind_param('ii',$stmt->insert_id,$stmtspec->insert_id);
+                    $stmtref->execute();
+                }
+
+            }
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 ?>

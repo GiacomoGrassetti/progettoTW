@@ -11,13 +11,14 @@
         <script type="text/javascript" src="js/forms.js"></script>
         <script type="text/javascript" src="js/utility.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
+        <link rel="icon" href="img/lolitems_doppio.png">
     </head>
     <body>
     <!--INIZIO HEADER-->
         <div id="header" class="container-fluid">
             <div id="header-title" class="row">
                 <div id="header-logo-left" class="col-sm">
-                    <a href="index.php"><img id="logo-img" class="pt-2" src="img/logo.png"/></a>
+                    <a href="index.php"><img id="logo-img" class="pt-2" src="img/lolitems_linea.png"/></a>
                 </div>
                 <div id="header-content-center" class="mx-auto col-sm">
                 <form method="get" action="controller_home.php" class="d-flex justify-content-center mt-2">

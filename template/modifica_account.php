@@ -3,12 +3,12 @@
       <div class="row text-white">
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
             <div class="px-2">
-                <form action="regist_user.php" method="post" class="justify-content-center">
+                <form action="process_modifica_info.php" method="post" class="justify-content-center">
                     <div id="profile-container" >
                         <image id="profileImage" src="img/user/user_default.png" />
-                    </div>
-                    <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" accept="image/*" capture/>
-
+                     </div>
+                     <input id="imageUpload" type="file" 
+                            name="profile_photo" placeholder="Photo" required="" capture/>
                     <img id="reg-divider" src="img/reg-divider.png" alt=""> 
 
                     <br><h2 class="d-flex">Personal details:</h2><br>
@@ -42,43 +42,6 @@
                             <input type="password" class="form-control" id="inputPasswordCheck" placeholder="Rewrite password">
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group form-input-reg">
-                        <label class="d-flex">You are:</label>
-                        <div class="d-flex col-sm-6">    
-                            <input class=" form-check-input" type="radio" name="inputRole" id="inputCustomer" value="customer" checked>
-                            <label class="form-check-label" for="inputCustomer">
-                                Customer
-                            </label>
-                        </div>
-                            <div class="d-flex col-sm-6">
-                            <input class=" form-check-input" type="radio" name="inputRole" id="inputVendor" value="vendor">
-                            <label class="form-check-label" for="inputVendor">
-                                Vendor
-                            </label>
-                        </div>
-                        
-                    </div>
-
-                    <br><h2 class="d-flex">Address:</h2><br>
-
-                    <div class="row form-group">
-                        <div class="col-sm-6 form-input-reg">
-                            <label class="d-flex" for="inputAddress">Address:</label>
-                            <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address">
-                        </div>
-                        <div class="col-sm-6 form-input-reg">
-                            <label class="d-flex" for="inputCity">City:</label>
-                            <input type="text" class="form-control" id="inputCity" name="city" placeholder="City">
-                        </div>
-                        <div class="col-sm-6 form-input-reg">
-                            <label class="d-flex" for="inputState">State:</label>
-                            <input type="text" class="form-control" id="inputState" name="state" placeholder="State">
-                        </div>
-                        <div class="col-sm-6 form-input-reg">
-                            <label class="d-flex" for="inputPostalCode">Postal code:</label>
-                            <input type="text" class="form-control" id="inputPostalCode" name="postalCode" placeholder="Postal code">
-                        </div>
-                    </div>
                     <button class="btn mt-2 btn-update text-center" type="submit" onclick="formhash(this.form, this.form.inputPassword);">Submit</button>
                 </form>
             </div>
@@ -101,18 +64,5 @@ function fasterPreview( uploader ) {
 
 $("#imageUpload").change(function(){
     fasterPreview( this );
-});
-
-$('#imageInput').change(function(){
-    var frm = new FormData();
-    frm.append('imageInput', input.files[0]);
-    $.ajax({
-        method: 'POST',
-        address: 'url/to/save/image',
-        data: frm,
-        contentType: false,
-        processData: false,
-        cache: false
-    });
 });
 </script>

@@ -52,6 +52,67 @@ class DbHelper{
         }
     }
 
+    public function getUserInfo($id_cliente){
+        $stmt = $this->db->prepare("SELECT idCliente, username, email, password, strada, citta, stato, nome, cognome, telefono, immagine, codP, salt FROM cliente WHERE idCliente = ? LIMIT 1");
+        $stmt->bind_param('i', $id_cliente); // esegue il bind del parametro '$email'.
+        $stmt->execute(); // esegue la query appena creata.
+        $stmt->store_result();
+        if($stmt->num_rows == 1){    
+            $stmt->bind_result($user_id, $username, $email, $db_password, $strada, $citta, $stato, $nome, $cognome, $telefono, $imagine, $codP, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
+            $stmt->fetch();
+            $tmp = array("
+                user_id" => $user_id,
+                "username"=>$username, 
+                "email" => $email, 
+                "password" => $db_password,
+                "strada" => $strada,
+                "citta" => $citta,
+                "stato" => $stato,
+                "nome" => $nome,
+                "cognome" => $cognome,
+                "telefono" => $telefono,
+                "immagine" => $immagine,
+                "codP" => $codP,
+                "salt" => $salt);
+
+            return $tmp;
+        }else{
+            return null;
+        }
+    }
+
+    public function updateUserInfo($tmp, $random_salt){
+        $stmt =  $this->db->prepare("SELECT * FROM cliente WHERE idCliente = ? LIMIT 1");
+        $stmt->bind_param('i',$tmp["user_id"]); 
+        $stmt->execute(); // esegue la query appena creata.
+        $stmt->store_result();
+        if($stmt->num_rows == 1){           
+            $insert_stmt =  $this->db->prepare("UPDATE cliente SET username=?, password=?, nome=?, cognome=?, email=?, telefono=?, immagine=?, salt=? 
+                                            WHERE idCliente = ?");
+        }else{
+            $insert_stmt =  $this->db->prepare("UPDATE venditore SET username=?, password=?, nome=?, cognome=?, email=?, telefono=?, immagine=?, salt=? 
+                                            WHERE idCliente = ?");
+        }
+        $insert_stmt->bind_param('ssssssssi', $tmp["firstName"], $tmp["p"], $tmp["firstName"], $tmp["lastName"], $tmp["email"], $tmp["inputMobileNumber"], $tmp["profile_photo"], $random_salt, $tmp["user_id"]); 
+        // Esegui la query ottenuta.
+        return $insert_stmt->execute();
+    }
+
+    public function updateUserAddress($tmp){
+        $stmt =  $this->db->prepare("SELECT * FROM cliente WHERE idCliente = ? LIMIT 1");
+        $stmt->bind_param('i',$tmp["user_id"]); 
+        $stmt->execute(); // esegue la query appena creata.
+        $stmt->store_result();
+        if($stmt->num_rows == 1){          
+            $insert_stmt =  $this->db->prepare("UPDATE cliente SET strada=?, citta=?, stato=?, codP=? WHERE idCliente = ?");
+        }else{
+            $insert_stmt =  $this->db->prepare("UPDATE venditore SET strada=?, citta=?, stato=?, codP=? WHERE idCliente = ?");
+        }
+        $insert_stmt->bind_param('ssssi', $tmp["address"], $tmp["city"], $tmp["state"], $tmp["postalCode"], $tmp["user_id"]); 
+        // Esegui la query ottenuta.
+        return $insert_stmt->execute();
+    }
+
     public function getAllItems(){
         $stmt = $this->db->prepare("SELECT * FROM oggetto");
         $stmt->execute();

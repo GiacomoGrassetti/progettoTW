@@ -31,11 +31,11 @@
                             <?php 
                                 if(login_check($dbh) == true){
                             ?>  
-                                    <h6 class="ml-2"><a class="col-sm-1" href="#"><i class="fas fa-user"></i><?php echo $_SESSION["username"]." |" ?></a></h6>
+                                    <h6 class="ml-2"><a class="col-sm-1" href="controller_pArea.php"><i class="fas fa-user"></i>&nbsp;PERSONAL AREA |&nbsp;</a></h6>
                             <?php
                                 }else{
                             ?>  
-                                <h6><i  class="fas fa-user"></i> LOGIN |</h6>
+                                <h6><i  class="fas fa-user"></i> LOGIN |&nbsp;</h6>
                             <?php     
                                 }
                             ?>
@@ -63,7 +63,7 @@
                         </div>
                         <!---->
 
-                        <h6 class="ml-2"><a class="col-sm-1" href="controller_cart.php"><i class="fas fa-shopping-cart"></i> CART |</a> </h6>
+                        <h6 class="ml-2"><a class="col-sm-1" href="controller_cart.php"><i class="fas fa-shopping-cart"></i> CART |&nbsp;</a> </h6>
                         <?php 
                             if(login_check($dbh) == true){
                             ?>  

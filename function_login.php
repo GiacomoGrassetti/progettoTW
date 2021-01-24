@@ -10,7 +10,7 @@
             if($stmt["password"] == $password) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
                 // Password corretta!            
                 $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
-    
+                
                 $stmt["user_id"] = preg_replace("/[^0-9]+/", "", $stmt["user_id"]); // ci proteggiamo da un attacco XSS
                 $_SESSION['user_id'] = $stmt["user_id"]; 
                 $stmt["username"] = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $stmt["username"]); // ci proteggiamo da un attacco XSS

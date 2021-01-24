@@ -21,9 +21,11 @@
                         </div>
                     </div>
                 </a>
-                <div class="label-sale">
-                    SALES
-                </div>
+                <?php if(isset($item["idSconto"])): ?>
+                    <div class="label-sale">
+                        SALES 
+                    </div>
+                <?php endif; ?>
                 <div class="row col-sm-12 item-pre-info">
                     <div class="col-sm-9 col-md-9 ">
                         <p>
@@ -31,7 +33,12 @@
                             <?php
                                 $cat=$dbh->getItemCat($item["idOggetto"]);
                                 foreach($cat as $val){
-                                    echo $val["nome"] . "<br>";
+                                    if(!($val["idCategoria"]==8 || $val["idCategoria"]==2)){
+                                        echo '<p class="idCat" hidden>'.$val["idCategoria"] . "</p>";
+                                    }else{
+                                        echo $val["nome"] . "<br>";
+                                        echo '<p class="idCat" hidden>'.$val["idCategoria"] . "</p>";
+                                    }
                                 }
                             ?>
                             <br><?php echo $item["prezzo"] ?>€

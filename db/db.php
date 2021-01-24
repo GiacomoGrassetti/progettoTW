@@ -41,6 +41,7 @@ class DbHelper{
         return $insert_stmt->execute();
     }
 
+
     public function getUserLogin($email){
         $stmt = $this->db->prepare("SELECT idCliente, username, email, password, salt FROM cliente WHERE email = ? LIMIT 1");
         $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
@@ -137,7 +138,7 @@ class DbHelper{
     }
 
     public function getItemCat($id){
-        $stmt = $this->db->prepare("SELECT categoria.nome FROM categoria JOIN diviso ON diviso.idCategoria=categoria.idCategoria WHERE diviso.idOggetto=? and (categoria.idCategoria=2 or categoria.idCategoria=8)");
+        $stmt = $this->db->prepare("SELECT categoria.nome, categoria.idCategoria FROM categoria JOIN diviso ON diviso.idCategoria=categoria.idCategoria WHERE diviso.idOggetto=?");
         $stmt->bind_param('i',$id);
         $stmt->execute();
         $result = $stmt->get_result();

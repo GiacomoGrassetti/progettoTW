@@ -5,9 +5,12 @@
     $dbh = new DbHelper("localhost", "root", "", "lolitems", 3306);
     $templateParams["categorie"]=$dbh->getAllCategory();
 
-    $cookie_name = "cart";
-    if(!isset($_COOKIE["cart"]) || !$_COOKIE["cart"]){
+    
+    if(!isset($_COOKIE["cart"])){
+        $cookie_name = "cart";
         $cookie_values = [];
         setcookie($cookie_name, serialize($cookie_values), time() + (86400 * 30), "/");
     }
+    
+
 ?>

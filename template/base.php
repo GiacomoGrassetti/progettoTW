@@ -10,6 +10,7 @@
         <script type="text/javascript" src="js/sha512.js"></script>
         <script type="text/javascript" src="js/forms.js"></script>
         <script type="text/javascript" src="js/uploader.js"></script>
+        <script type="text/javascript" src="js/utility.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
     </head>
     <body>
@@ -89,10 +90,10 @@
                                 </a>
                                 <div class="dropdown-menu container filter" aria-labelledby="navbarDropdown">
                                     <div class="col-sm-12">
-                                        <form class="row" action="">
+                                        <form class="row">
                                             <?php foreach($templateParams["categorie"] as $item): ?>
                                                 <div class="form-check form-switch">
-                                                    <input class="form-check-input" name="<?php echo $item["nome"];?>" type="checkbox" id="<?php echo $item["nome"];?>">
+                                                    <input class="form-check-input" value="<?php echo $item["idCategoria"];?>" onClick="filterItem(this);" name="filter" type="checkbox" id="<?php echo $item["nome"];?>">
                                                     <label class="form-check-label" for="flexSwitchCheckDefault"><?php echo $item["nome"];?></label>
                                                 </div>
                                             <?php endforeach; ?>  

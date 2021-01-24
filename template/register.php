@@ -79,7 +79,7 @@
                             <input type="text" class="form-control" id="inputPostalCode" name="postalCode" placeholder="Postal code">
                         </div>
                     </div>
-                    <button class="btn mt-2 btn-update text-center" type="submit" onclick="formhash(this.form, this.form.inputPassword);">Submit</button>
+                    <button id="but_upload" class="btn mt-2 btn-update text-center" type="submit" onclick="formhash(this.form, this.form.inputPassword);">Submit</button>
                 </form>
             </div>
         </div>
@@ -88,31 +88,6 @@
 </section>
 
 <script>
-$("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-});
 
-function fasterPreview( uploader ) {
-    if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-             window.URL.createObjectURL(uploader.files[0]) );
-    }
-}
 
-$("#imageUpload").change(function(){
-    fasterPreview( this );
-});
-
-$('#imageInput').change(function(){
-    var frm = new FormData();
-    frm.append('imageInput', input.files[0]);
-    $.ajax({
-        method: 'POST',
-        address: 'url/to/save/image',
-        data: frm,
-        contentType: false,
-        processData: false,
-        cache: false
-    });
-});
 </script>

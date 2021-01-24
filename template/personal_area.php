@@ -1,5 +1,3 @@
-<?php var_dump($userInfo);
-?>
 <section class="account-section">
     <div class="gradient-top"></div>
     <div class="main-body container">    
@@ -9,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="$userInfo" alt="Admin" class="rounded-circle" width="150">
+                            <img src="<?php echo $userInfo["immagine"]?>" alt="Admin" class="rounded-circle" width="150">
                         </div>
                     </div>
                 </div>

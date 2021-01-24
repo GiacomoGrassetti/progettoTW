@@ -24,6 +24,11 @@ class DbHelper{
     }
 
     public function getUserRegister($tmp, $random_salt){
+        if(!empty($tmp["profile_photo"])){
+            $tmp["profile_photo"] = "img/user/".$tmp["profile_photo"]; 
+        }else{
+            $tmp["profile_photo"] = "img/user/user_default.png"; 
+        }
         if($tmp["inputRole"] == "customer"){
             $insert_stmt =  $this->db->prepare("INSERT INTO cliente (username, password, strada, citta, stato, idCliente, nome, cognome, email, telefono, immagine, codP, salt)
                                             VALUES (?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");  
@@ -57,7 +62,7 @@ class DbHelper{
         $stmt->execute(); // esegue la query appena creata.
         $stmt->store_result();
         if($stmt->num_rows == 1){    
-            $stmt->bind_result($user_id, $username, $email, $db_password, $strada, $citta, $stato, $nome, $cognome, $telefono, $imagine, $codP, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
+            $stmt->bind_result($user_id, $username, $email, $db_password, $strada, $citta, $stato, $nome, $cognome, $telefono, $immagine, $codP, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
             $stmt->fetch();
             $tmp = array("
                 user_id" => $user_id,
@@ -85,6 +90,11 @@ class DbHelper{
         $stmt->bind_param('i',$tmp["user_id"]); 
         $stmt->execute(); // esegue la query appena creata.
         $stmt->store_result();
+        if(!empty($tmp["profile_photo"])){
+            $tmp["profile_photo"] = "img/user/".$tmp["profile_photo"]; 
+        }else{
+            $tmp["profile_photo"] = "img/user/user_default.png"; 
+        }
         if($stmt->num_rows == 1){           
             $insert_stmt =  $this->db->prepare("UPDATE cliente SET username=?, password=?, nome=?, cognome=?, email=?, telefono=?, immagine=?, salt=? 
                                             WHERE idCliente = ?");

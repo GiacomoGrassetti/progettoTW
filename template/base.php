@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="js/sha512.js"></script>
         <script type="text/javascript" src="js/forms.js"></script>
+        <script type="text/javascript" src="js/uploader.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
     </head>
     <body>

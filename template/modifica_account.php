@@ -6,9 +6,9 @@
                 <form action="process_modifica_info.php" method="post" class="justify-content-center">
                     <div id="profile-container" >
                         <image id="profileImage" src="img/user/user_default.png" />
-                     </div>
-                     <input id="imageUpload" type="file" 
-                            name="profile_photo" placeholder="Photo" required="" capture/>
+                    </div>
+                    <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" accept="image/*" capture/>
+                    
                     <img id="reg-divider" src="img/reg-divider.png" alt=""> 
 
                     <br><h2 class="d-flex">Personal details:</h2><br>
@@ -42,27 +42,10 @@
                             <input type="password" class="form-control" id="inputPasswordCheck" placeholder="Rewrite password">
                         </div>
                     </div>
-                    <button class="btn mt-2 btn-update text-center" type="submit" onclick="formhash(this.form, this.form.inputPassword);">Submit</button>
+                    <button id="but_upload" class="btn mt-2 btn-update text-center" type="submit" onclick="formhash(this.form, this.form.inputPassword);">Submit</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="gradient-bottom"></div>
 </section>
-
-<script>
-$("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-});
-
-function fasterPreview( uploader ) {
-    if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-             window.URL.createObjectURL(uploader.files[0]) );
-    }
-}
-
-$("#imageUpload").change(function(){
-    fasterPreview( this );
-});
-</script>

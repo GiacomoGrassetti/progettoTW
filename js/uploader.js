@@ -11,7 +11,6 @@ $( document ).ready(function() {
 
         var fd = new FormData();
         var files = $('#imageUpload')[0].files;
-        alert("ebnter");
         // Check file selected or not
         if(files.length > 0 ){
            fd.append('file',files[0]);

@@ -24,6 +24,7 @@ class DbHelper{
     }
 
     public function getUserRegister($tmp, $random_salt){
+        
         if(!empty($tmp["profile_photo"])){
             $tmp["profile_photo"] = "img/user/".$tmp["profile_photo"]; 
         }else{

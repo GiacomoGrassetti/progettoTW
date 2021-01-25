@@ -2,10 +2,6 @@
     require_once("setup.php");
     $templateParams["titolo"] = "LolItems - Home";
     $templateParams["nome"] = "home.php";
-    
-    $o=[];
-    $dbh->addNewObject($o,$o,$o);
-
 
     if(isset($_GET["find"]) && $_GET["find"]!="" ){
         $templateParams["articoli"]=$dbh->findItem('%'.$_GET["find"].'%');

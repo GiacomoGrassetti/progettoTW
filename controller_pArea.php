@@ -4,6 +4,6 @@
     $templateParams["nome"] = "personal_area.php";
 
     $userInfo = $dbh->getUserInfo($_SESSION["user_id"]);
-
+    
     require("template/base.php");
 ?>

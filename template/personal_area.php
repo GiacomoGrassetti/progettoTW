@@ -87,8 +87,8 @@
                 </div>
                 <div class="row gutters-sm mx-auto d-flex justify-content-center align-items-center">
                     <div class="col-sm-3">
-                        <a href="">
-                            <span class='btn btn-span'>Manage list</span>
+                        <a href="controller_area_venditore.php">
+                            <span id="<?php echo $userInfo["role"]?>" class='btn btn-span role'>Manage list</span>
                         </a>
                     </div>
                 </div>

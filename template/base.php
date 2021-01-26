@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,7 @@
         <script type="text/javascript" src="js/uploader.js"></script>
         <script type="text/javascript" src="js/utility.js"></script>
         <script type="text/javascript" src="js/control_form.js"></script>
+        <script type="text/javascript" src="js/control_role.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
         <link rel="icon" href="img/lolitems_doppio.png">
     </head>

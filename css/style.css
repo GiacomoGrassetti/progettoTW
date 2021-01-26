@@ -454,3 +454,32 @@ td {
 .item-qnt{
     width: 100px;
 }
+
+/*TEMPLATE AREA VEDITORE*/
+.operation-list{
+    width: 100%;
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.operation-el{
+    margin: 5% 5% 0px 5%;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    min-width: 0px;
+}
+
+.op-img{
+    width: 410px; height: auto;
+}
+
+
+@media screen and (max-width: 770px){
+    .op-img{
+        width: 300px;
+        height: auto;
+    }
+}
+

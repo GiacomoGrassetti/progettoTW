@@ -30,14 +30,3 @@ function filterItem(){
         }
     }
 }
-/*
-if(value.innerHTML==check.value){
-    if(check.checked){
-        item.style.display="block";
-    }else{
-        item.style.display="none";
-        
-    }
-}else{
-    item.style.display="none";
-}*/

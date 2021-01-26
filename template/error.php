@@ -7,8 +7,6 @@
         <div class="gradient-bottom"></div>
     </div>
 </section>
-    
-<!--Ops, something went wrong!-->
 
         
 

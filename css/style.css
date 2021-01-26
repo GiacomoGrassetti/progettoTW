@@ -383,6 +383,7 @@ ul{
 }
 
 table{
+    width: 80%;
     background-color: rgba(255, 255, 255, 0.5);
 }
 td {
@@ -441,4 +442,15 @@ td {
 }
 .shadow-none {
     box-shadow: none!important;
+}
+
+
+
+/*TEMPLATE CHECKOUT*/
+.checkout-complete {
+    background-image: url("../img/bg-cart.png");
+}
+
+.item-qnt{
+    width: 100px;
 }

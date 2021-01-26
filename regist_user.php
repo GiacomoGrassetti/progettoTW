@@ -1,11 +1,12 @@
 <?php
     require_once("setup.php");
+
     //var_dump($_POST);
     //var_dump( $dbh->controlEmailExist($_POST["email"],isset($_POST["inputCustomer"])));
     #controllo email esistente usa unique su email
     //$userInfo = array("name" => , "surname" => , "email" => , "phone" => , "p" => ,"address" => , "city" => , "state" => , "codP" => );
     // Recupero la password criptata dal form di inserimento.
-    $password = $_POST['p']; 
+    $password = $_POST['p'];
     // Crea una chiave casuale
     $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
     // Crea una password usando la chiave appena creata.

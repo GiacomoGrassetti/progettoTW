@@ -3,12 +3,12 @@
     $templateParams["titolo"] = "LolItems - cart";
     $templateParams["nome"] = "cart.php";
     $templateParams["articoliCart"] = array();
-    foreach(unserialize($_COOKIE["cart"], ["allowed_classes" => false]) as $idItem):
+    $tmp_info = unserialize($_COOKIE["cart"], ["allowed_classes" => false]);
+    foreach($tmp_info["id"] as $index => $idItem):
         foreach($dbh->getItemFromId($idItem) as $item):
+            $item["qnt"] = $tmp_info["qnt"][$index];
             array_push($templateParams["articoliCart"], $item);        
         endforeach;    
     endforeach;
-
-    
     require("template/base.php");
 ?>

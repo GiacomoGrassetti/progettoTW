@@ -112,22 +112,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">SKIN</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ETERNAL</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ACCESSIORIES</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">CHAMPIONS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">GIFT</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">PROMOS</a>
+                                <a class="nav-link" href="controller_notifica.php">NOTIFICHE</a>
                             </li>
                         </ul>
                     </div>

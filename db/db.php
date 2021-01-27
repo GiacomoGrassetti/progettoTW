@@ -412,7 +412,8 @@ class DbHelper{
     public function getUserNotification($id){
         $stmt=$this->db->prepare("SELECT notifica.testo FROM notifica WHERE notifica.idUtente=?");
         $stmt->bind_param('i',$id);
-        $result=$stmt->execute();
+        $stmt->execute();
+        $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -427,7 +428,6 @@ class DbHelper{
         $stmt1=$this->db->prepare("SELECT quantita FROM oggetto WHERE idOggetto=?");
         $stmt=$this->db->prepare("UPDATE oggetto SET quantita=? WHERE oggetto.idOggetto=?");
         $stmtUp=$this->db->prepare("DELETE FROM contiene WHERE idOggetto=? AND idCliente=?");
-       // var_dump($obj);
         foreach($obj["id"] as $key=>$value){
             $stmt1->bind_param('i',$value);
             $stmt1->execute();
@@ -504,8 +504,6 @@ class DbHelper{
         }
         return $result;
     }
-
-   
 
 }
 ?>

@@ -1,3 +1,19 @@
+$(document).ready(function() {
+    $('#call').click(function() {
+        if(checkQnt()){
+            console.log("enter");
+            $.ajax(
+    
+                location.href = 'prova.php'
+            );
+        }
+    
+    });
+});
+
+
+var loaded = false;
+
 function low(id){
     if($("#qnt_"+id).text()>0){
         $("#qnt_"+id).text($("#qnt_"+id).text()-1);
@@ -26,15 +42,4 @@ function checkQnt(){
     }
     return true;
     
-}
-
-function callCheckout(){
-    if(checkQnt()){
-        console.log("enter");
-        $.ajax(
-            
-            location.href = 'process_checkout.php'
-        );
-    }
-
 }

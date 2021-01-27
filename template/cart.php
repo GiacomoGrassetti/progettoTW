@@ -5,7 +5,7 @@
             <h1 class="text-center text-white title-page">Your cart</h1>
         </div>
         <div class="row">
-            <div class="col-sm-10 mx-auto justify-content-center table-responsive">
+            <div class=".prova col-sm-10 mx-auto justify-content-center table-responsive">
                 <table class="table mt-2">
                     <thead>
                         <tr>

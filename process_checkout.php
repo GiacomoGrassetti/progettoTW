@@ -13,6 +13,8 @@
                     $dbh->checkoutCart($cart,$_SESSION["user_id"]);
                     $data = unserialize($_COOKIE["cart"], ["allowed_classes" => false]);
                     unset($data);
+                    $u++;
+                    var_dump($u);
                     $data = array();
                     setcookie("cart", serialize($data), time() + (86400 * 30), "/");
                     $dbh->notifyUser($notify["add"],$cart,$_SESSION["user_id"]);

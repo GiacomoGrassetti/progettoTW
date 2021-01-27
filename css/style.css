@@ -541,3 +541,7 @@ td {
 }
 
 
+/*TEMPLATE NOTIFICA*/
+.area-notifica{
+    background-image:  url(../img/bg-cart.png);
+}

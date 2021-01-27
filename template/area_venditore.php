@@ -11,13 +11,13 @@
             </li>
             <li class="operation-el">
                 <a href="controller_tabella_oggetti.php">
-                    <img class="op-img" src="img/modify_item.png" alt="Add Item">
+                    <img class="op-img" src="img/modify_item.png" alt="Modify Item">
                 </a>
                 <p class="text-center">Modifica articoli</p>
             </li>
             <li class="operation-el">
-                <a href="">
-                    <img class="op-img" src="img/sales.png" alt="Add Item">
+                <a href="controller_sales.php">
+                    <img class="op-img" src="img/sales.png" alt="Add sales">
                 </a>
                 <p class="text-center">Gestione sconti</p>
             </li>

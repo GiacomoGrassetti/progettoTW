@@ -21,7 +21,9 @@
             
         </div>
         <div class="text-white mx-auto item-info justify-content-center text-center"><p><?php foreach($templateParams["itemCat"] as $cat){echo " | ".$cat["nome"]." | ";} ?></p></div>
-        <button type="submit" class="btn-rectangle mt-4">Add to cart</button>
+            <a href="add_to_cart.php?id=<?php echo $templateParams["item"][0]["idOggetto"];?>">
+                <span id="add-sale" class='btn mx-auto mt-2 btn-rectangle'>Add sale</span>
+            </a>
     </div>
     <div class="gradient-bottom"></div>
 </section>

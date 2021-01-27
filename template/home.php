@@ -5,10 +5,11 @@
     </video>
     <div class="col-sm-12 col-md-12 row container-fluid m-0">
         <?php foreach($templateParams["articoli"] as $item): ?>
+            <?php if($item["quantita"] > 0) {?>
             <div class="item-container col-md-2 mt-2">
                 <a href="controller_item_info.php?id=<?php echo $item["idOggetto"]?>">
                     <div class="opacity">
-                        <img title="<?php echo $item["nome"] ?>" class="item-img" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>">
+                        <img  class="item-img" src="<?php echo $item["immagine"] ?>" alt="<?php echo $item["nome"] ?>">
                         <div class="stats-img d-flex justify-content-center align-items-center ">
                             <ul>
                                 <?php 
@@ -45,10 +46,11 @@
                         </p>
                     </div>
                     <div class="col-sm col-md d-flex justify-content-center align-self-center">
-                        <a href="add_to_cart.php?id=<?php echo $item["idOggetto"];?>"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>                
+                        <a aria-label="shop" href="add_to_cart.php?id=<?php echo $item["idOggetto"];?>"><i alt="shop" class="fa fa-cart-plus fa-2x"></i></a>                
                     </div>
                 </div>
             </div>
+            <?php } ?>
         <?php endforeach; ?>  
     </div>
     <div class="gradient-bottom"></div>

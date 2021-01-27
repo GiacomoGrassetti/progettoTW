@@ -7,6 +7,7 @@
                     <div id="profile-container" >
                         <image id="profileImage" src="img/user/user_default.png" />
                     </div>
+                    <label for="imageUpload">profile photo</label>
                     <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" accept="image/*" capture/>
 
                     <img id="reg-divider" src="img/reg-divider.png" alt=""> 
@@ -43,7 +44,9 @@
                         </div>
                     </div>
                     <div class="col-sm-12 form-group form-input-reg">
-                        <label class="d-flex">You are:</label>
+                        
+                        <fieldset>
+                        <legend class="d-flex">You are:</legend>
                         <div class="d-flex col-sm-6">    
                             <input class=" form-check-input" type="radio" name="inputRole" id="inputCustomer" value="customer" checked>
                             <label class="form-check-label" for="inputCustomer">
@@ -56,7 +59,7 @@
                                 Vendor
                             </label>
                         </div>
-                        
+                        </fieldset>
                     </div>
 
                     <br><h2 class="d-flex">Address:</h2><br>

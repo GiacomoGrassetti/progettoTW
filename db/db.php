@@ -272,6 +272,15 @@ class DbHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getSalesValue($id){
+        $stmt=$this->db->prepare("SELECT sconto.valore from sconto  where idSconto = ?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
     public function insertObj($obj,$cat,$specs){
         $stmt=$this->db->prepare("INSERT INTO oggetto(idOggetto,immagine,descrizione,nome,quantita,idSconto,idVenditore,prezzo) VALUES(NULL,?,?,?,?,NULL,?,?)");
         $stmt->bind_param('sssiid',$obj["profile_photo"],$obj["itemDesc"],$obj["itemName"],$obj["itemQuantity"],$obj["idVenditore"],$obj["itemPrice"]);
@@ -334,8 +343,6 @@ class DbHelper{
         $addcat->bind_param('ii',$idObj,$idCat);
         return $addcat->execute();
     }
-
-    
 
     public function insertStats($idObj,$statN, $statV){
         $insertStat=$this->db->prepare("INSERT INTO statistica(idStat,nome,valore) VALUES(NULL,?,?)");
@@ -410,7 +417,7 @@ class DbHelper{
 
 
     public function getUserNotification($id){
-        $stmt=$this->db->prepare("SELECT notifica.testo FROM notifica WHERE notifica.idUtente=?");
+        $stmt=$this->db->prepare("SELECT notifica.testo, notifica.data FROM notifica WHERE notifica.idUtente=?");
         $stmt->bind_param('i',$id);
         $stmt->execute();
         $result = $stmt->get_result();

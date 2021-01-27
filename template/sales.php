@@ -16,7 +16,7 @@
                     <?php foreach($tmp as $sale) : ?>
                         <tr class="tr-control">
                             <td class="dataEmissione"><?php echo $sale["dataEmissione"]?></td>
-                            <td class="dataScendenza"><?php echo $sale["dataScadenza"] ?>€</td>
+                            <td class="dataScendenza"><?php echo $sale["dataScadenza"] ?></td>
                             <td class="valore"><?php echo $sale["valore"]?></td>
                             <td class="oggetto">
                                 <?php foreach($sale["item"] as $item):

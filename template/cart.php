@@ -19,6 +19,7 @@
                     </thead>
                     <tbody>
                         <?php foreach($templateParams["articoliCart"] as $item): ?>
+                        
                             <tr class="tr-control">
                                 <td scope="hidden-xs">
                                     <img style="width: 58px; height: 58px" src="<?php echo $item["immagine"]?>" alt="">
@@ -42,7 +43,15 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <button class="btn mx-auto btn-rectangle" id="call">Submit</button>
+                <?php 
+                if(isset($_SESSION["user_id"])){
+                    echo '<button class="btn mx-auto btn-rectangle" id="call">Submit</button>';
+                }else{
+                    echo '<a type="button" class="btn" href="controller_register.php">
+                    <span class="btn btn-span">Sign up</span>
+                    </a>';
+                }
+                ?>
             </div> 
             
         </div>

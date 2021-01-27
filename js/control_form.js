@@ -1,14 +1,35 @@
 
 
-function low(id){
-    if($("#qnt_"+id).text()>0){
-        $("#qnt_"+id).text($("#qnt_"+id).text()-1);
+function low(ida){
+    if($("#qnt_"+ida).text()>0){
+        $("#qnt_"+ida).text($("#qnt_"+ida).text()-1);
+        let q= $("#qnt_"+ida).text();
+        $.ajax({
+            type: "GET",
+            url: "process_cookie.php",
+            data: { id:ida, qnt:q},
+            success: function(){
+                //window.location.href="process_cookie.php?id="+id+"&qnt="+$("#qnt_"+id).text();
+            }
+        });
     }
+    
+    
 }
 
-function high(id){
-    $("#qnt_"+id).text(parseInt($("#qnt_"+id).text())+1);
-    
+
+
+function high(ida){
+    $("#qnt_"+ida).text(parseInt($("#qnt_"+ida).text())+1);
+    let q= $("#qnt_"+ida).text();
+        $.ajax({
+            type: "GET",
+            url: "process_cookie.php",
+            data: { id:ida, qnt:q},
+            success: function(){
+                //window.location.href="process_cookie.php?id="+id+"&qnt="+$("#qnt_"+id).text();
+            }
+        });
 }
    
 function checkQnt(){
@@ -31,14 +52,18 @@ function checkQnt(){
 }
 
 $(document).ready(function() {
-$('#call').click(function() {
-    $.ajax({
-      type: "POST",
-      url: "process_checkout.php",
-      data: { status:"4"},
-      success: function(){
-        window.location.href="controller_home.php?status=4";
-    }
+    $('#call').click(function() {
+        if(!checkQnt()){
+            return;
+        }
+
+        $.ajax({
+        type: "POST",
+        url: "process_checkout.php",
+        data: { status:"4"},
+        success: function(){
+            window.location.href="controller_home.php?status=4";
+        }
     });
   });
 });

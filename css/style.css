@@ -12,6 +12,10 @@ body{
     color: white;
     background-color: #674f26;
 }
+.btn-span:hover{
+    color: white;
+    background-color: #674f26d0;
+}
 
 a {
     color: #b5a982 !important;
@@ -456,6 +460,9 @@ td {
 }
 
 /*TEMPLATE AREA VEDITORE*/
+.area-venditore{
+    background-image: url("../img/bg-cart.png");
+}
 .operation-list{
     width: 100%;
     list-style: none;
@@ -471,7 +478,13 @@ td {
     min-width: 0px;
 }
 
+.operation-el > p{
+    
+    background-color: white;
+}
+
 .op-img{
+    border: 2px, solid, white;
     width: 410px; height: auto;
 }
 
@@ -483,3 +496,30 @@ td {
     }
 }
 
+
+/**/
+.add-item-area{
+    background-image: url(../img/bg_item_info.png);
+}
+
+.add-box{
+    height: fit-content;
+    position: relative;
+    min-width: 0;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 5%;
+}
+
+
+#imageItemUpload
+{
+    display: none;
+}
+
+#itemImage
+{
+    cursor: pointer;
+}

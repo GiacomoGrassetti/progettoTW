@@ -24,12 +24,12 @@
         <div id="header" class="container-fluid">
             <div id="header-title" class="row">
                 <div id="header-logo-left" class="col-sm">
-                    <a href="index.php"><img id="logo-img" class="pt-2" src="img/lolitems_linea.png"/></a>
+                    <a href="index.php"><img id="logo-img" class="pt-2" alt="lolItems" src="img/lolitems_linea.png"/></a>
                 </div>
                 <div id="header-content-center" class="mx-auto col-sm">
                 <form method="get" action="controller_home.php" class="d-flex justify-content-center mt-2">
-                    <input id="search-input" class="form-control me-2" type="search" placeholder="Search" name="find" aria-label="Search">
-                    <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
+                    <input id="search-input" class="form-control me-2" value="search" type="search" placeholder="Search" name="find" aria-label="Search">
+                    <button id="search-button" aria-label="search" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 </div>
                 <div id="header-login-right " class="col-sm mt-4" >
@@ -51,11 +51,11 @@
                         <div class="dropdown-menu box-login bubble">
                             <form id="form-login" class="px-4 py-3" method="post" action="process_login.php">
                                 <div class="form-group">
-                                    <label for="exampleDropdownFormEmail1">Email address</label>
+                                    <label for="email">Email address</label>
                                     <input type="email" class="form-control" name="inputEmail" id="email" placeholder="Enter your email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleDropdownFormPassword1">Password</label>
+                                    <label for="password">Password</label>
                                     <input type="password" class="form-control" name="inputPassword" id="password" placeholder="Password">
                                 </div>
                                 <div class="form-check">
@@ -97,12 +97,16 @@
                                 <div class="dropdown-menu container filter" aria-labelledby="navbarDropdown">
                                     <div class="col-sm-12">
                                         <form class="row">
+                                            <fieldset>
+                                            <legend> Category</legend>
                                             <?php foreach($templateParams["categorie"] as $item): ?>
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" value="<?php echo $item["idCategoria"];?>" onClick="filterItem(this);" name="filter" type="checkbox" id="<?php echo $item["nome"];?>">
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault"><?php echo $item["nome"];?></label>
+                                                    <label class="form-check-label" for="<?php echo $item["nome"];?>"><?php echo $item["nome"];?></label>
                                                 </div>
+                                                
                                             <?php endforeach; ?>  
+                                            </fieldset>
                                         </form>
                                     </div>
                                 </div>
@@ -142,8 +146,8 @@
         
         <!--BUTTON TO TOP-->
         <div id="btn-to-top" class="align-items-center">
-            <a href="#header"><i class="fas fa-angle-up"></i></a><br>
-            <a href="#footer"><i class="fas fa-angle-down"></i></a>
+            <a aria-label="up" href="#header"><i class="fas fa-angle-up"></i></a><br>
+            <a aria-label="down" href="#footer"><i class="fas fa-angle-down"></i></a>
         </div>
         
         <!---->
@@ -151,7 +155,7 @@
             <div id="footer-title" class="row">
                 <div class="col-md-2">
                     <div class="row">
-                        <h3>LoLItems</h3>
+                        <a href="index.php"><img id="logo-img" class="pt-2" alt="lolItems" src="img/lolitems_linea.png"/></a>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -169,12 +173,12 @@
                         <h5>POLICY</h5>
                     </div>
                     <div class="row">
-                        <a class="text-muted" href="#">Termsof Usage</a></br>
-                        <a class="text-muted" href="controller_policy.php">Privacy Policy</a>
+                       <!-- <a class="text-muted" href="#">Termsof Usage</a></br>
+                        <a class="text-muted" href="controller_policy.php">Privacy Policy</a>-->
                     </div>
                 </div>
                 <div class="col-md-6 justify-content-center">
-                    <img class="pt-2" id="footer-img" src="img/volibear.png"/>
+                    <img class="pt-2" id="footer-img" alt="" src="img/volibear.png"/>
                 </div>
             </div>
             <div class="row">

@@ -7,6 +7,7 @@
                     <div id="profile-container" >
                         <image id="profileImage" src="img/user/user_default.png" />
                     </div>
+                    <label for="imageUpload">profile photo</label>
                     <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" accept="image/*" capture/>
                     
                     <img id="reg-divider" src="img/reg-divider.png" alt=""> 

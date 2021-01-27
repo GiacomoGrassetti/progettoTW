@@ -243,6 +243,27 @@ class DbHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function addSale($tmp){
+        $stmt=$this->db->prepare("INSERT INTO sconto(valore, dataScadenza, idVenditore) VALUES (?,?,?)");
+        $stmt->bind_param("ssi", $tmp["value"], $tmp["date"], $tmp["user_id"]);
+        $stmt->execute();
+        $index=$this->db->insert_id;
+        foreach($tmp["items"] as $obj){
+            $stmtObj=$this->db->prepare("UPDATE oggetto SET idSconto= ? WHERE idOggetto = ?");
+            $stmtObj->bind_param("is", $index, $obj);
+            $stmtObj->execute();
+        }
+        $result = $stmt->get_result();
+    }
+
+    public function getObjBySale($id){
+        $stmt=$this->db->prepare("SELECT nome FROM oggetto WHERE idSconto = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getSalesOfVendor($id){
         $stmt=$this->db->prepare("SELECT sconto.idSconto, sconto.valore, sconto.dataEmissione, sconto.dataScadenza from sconto JOIN venditore ON venditore.idVenditore = sconto.idVenditore where venditore.idVenditore=?");
         $stmt->bind_param('i',$id);

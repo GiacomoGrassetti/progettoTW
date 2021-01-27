@@ -9,16 +9,17 @@
                     <div id="profile-container">
                         <image id="itemImage" src="<?php echo $templateParams["item"][0]["immagine"]?>"/>
                     </div>
+                    <label for="imageItemUpload">profile photo</label>
                     <input id="imageItemUpload" type="file" name="profile_photo" placeholder="Photo" accept="image/*" capture/>
 
                     <div class="add mt-2">
-                        <h5 class="mb-2">Specifiche(name=value)</h5>
+                        <label for="spec" class="mb-2">Statistic(name=value)</label>
                         <input id="spec" type="text" class="form-control input-stretch mb-2" id="nomeSpec" name="nomeSpec" placeholder="name=value">
                         <a >
                             <span id="add-spec" class='btn btn-span'>Add spec</span>
                         </a>
                         <!--<button id="add-spec" type="btn" class="btn btn-span mb-2" >Add spec</button>-->
-                        <textarea id="textAreaSpec" class="form-control mt-2 mb-2" id="itemSpec" name="itemSpec" rows=3><?php foreach($templateParams["itemParams"] as $spec): echo $spec["nome"]."=".$spec["valore"].";"; endforeach?></textarea>
+                        <textarea aria-label="Statistic" id="textAreaSpec" class="form-control mt-2 mb-2" id="itemSpec" name="itemSpec" rows=3><?php foreach($templateParams["itemParams"] as $spec): echo $spec["nome"]."=".$spec["valore"].";"; endforeach?></textarea>
                     </div>
                 </div>
                 <div class="col-sm-4 add-box">
@@ -37,15 +38,17 @@
                     </div>
                 </div>
                 <div class="col-sm-2 add-box">
-                    <h5 class="mb-2">Category item</h5>
+                    <fieldset>
+                    <legend class="mb-2">Category item</legend>
                     <?php foreach ($templateParams["category"] as $cat) : ?>
                         <div class="add form-check cat-box">
                             <input class="form-check-input" name="categoria[]" type="checkbox" id="<?php echo $cat["idCategoria"]?>" value="<?php echo $cat["idCategoria"]?>">
-                            <label class="form-check-label" for="addCat"><?php echo $cat["nome"] ?></label>
+                            <label class="form-check-label" for="<?php echo $cat["idCategoria"]?>"><?php echo $cat["nome"] ?></label>
                         </div>
                     <?php
                     endforeach;
-                    ?>                    
+                    ?>                   
+                    </fieldset> 
                 </div>
                 
             </div>

@@ -106,6 +106,7 @@ a:hover {
 }
 
 .btn-rectangle {
+    width: auto;
     font-size: 14px;
     border:none;
     padding: 10px 20px 10px 20px;
@@ -394,6 +395,15 @@ td {
     height: 77px;
 }
 
+.qnt{
+    width: 50px;    
+    margin: 0px;
+}
+
+.btn-low{
+    float: left;
+}
+
 
 /*PERSONAL AREA*/
 .account-section{
@@ -497,7 +507,7 @@ td {
 }
 
 
-/**/
+/*TEMPLATE ADD ITEM*/
 .add-item-area{
     background-image: url(../img/bg_item_info.png);
 }
@@ -523,3 +533,11 @@ td {
 {
     cursor: pointer;
 }
+
+/*TEMPLATE SALES*/
+
+.area-sales{
+    background-image: url(../img/bg-register.png);
+}
+
+

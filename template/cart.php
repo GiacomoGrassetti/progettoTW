@@ -27,9 +27,10 @@
                                 <td class="prezzo"><?php echo $item["prezzo"] ?>€</td>
                                
                                 <td  class="qnt-td">
-                                    <button style="float:left;" onClick="low(<?php echo $item["idOggetto"] ?>)" class="btn" type="button">-</button>
-                                    <p class="qnt" id="qnt_<?php echo $item["idOggetto"] ?>"style="width:min-content;"><?php echo $item["qnt"]?></p>
-                                    <button  onClick="high(<?php echo $item["idOggetto"] ?>)" class="btn" type="button">+</button>
+                                    <button onClick="low(<?php echo $item["idOggetto"] ?>)" class="btn btn-low" type="button">-</button>
+                                    <span class="qnt m-0" id="qnt_<?php echo $item["idOggetto"] ?>"><?php echo $item["qnt"]?></span>
+                                    <button  onClick="high(<?php echo $item["idOggetto"] ?>)" class="btn btn-up" type="button">+</button>
+                                    
                                 </td>
                                
                                 <td class="quantita"><?php echo $item["quantita"]?></td>
@@ -41,8 +42,9 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-            <button class="btn" onclick="callCheckout();">Submit</button>
+                <button class="btn mx-auto btn-rectangle" onclick="callCheckout();">Submit</button>
+            </div> 
+            
         </div>
     </div>
     <div class="gradient-bottom"></div>

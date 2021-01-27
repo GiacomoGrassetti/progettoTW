@@ -40,11 +40,11 @@
                                     <?php }else{  echo "0 %"; }?>
                                     
                                 </td>
-                                <td class="tot"><script>
+                                <td class="tot" ><script>
                                     <?php if(isset($item["idSconto"])){?>
-                                        getTotalWithSale(<?php echo $item["prezzo"].",".$item["qnt"].",".$item["saleVal"][0]["valore"];?>);
-                                    <?php }else{?> 
-                                        getTotal(<?php echo $item["prezzo"].",".$item["qnt"];?>);
+                                        <?php echo 'getTotalWithSale('.$item["prezzo"].",".$item["qnt"].",".$item["saleVal"][0]["valore"].",".$item["idOggetto"].');';?>
+                                    <?php }else{?>
+                                        <?php echo 'getTotal('.$item["prezzo"].",".$item["qnt"].",".$item["idOggetto"].');';?>
                                      <?php }?> 
                                 </script>€</td>
                                 

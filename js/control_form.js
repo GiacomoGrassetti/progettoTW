@@ -2,8 +2,14 @@
 
 function low(ida){
     if($("#qnt_"+ida).text()>0){
+        let tot = $("#tot_"+ida).text();
+        tot = tot.replace('€', '');
+        console.log(tot);
         $("#qnt_"+ida).text($("#qnt_"+ida).text()-1);
-        let q= $("#qnt_"+ida).text();
+        let q= parseInt($("#qnt_"+ida).text());
+        tot = tot/(q+1);
+        tot = tot * q;
+        $("#tot_"+ida).text(tot);
         $.ajax({
             type: "GET",
             url: "process_cookie.php",
@@ -21,7 +27,13 @@ function low(ida){
 
 function high(ida){
     $("#qnt_"+ida).text(parseInt($("#qnt_"+ida).text())+1);
-    let q= $("#qnt_"+ida).text();
+    let q= parseInt($("#qnt_"+ida).text());
+    let tot = $("#tot_"+ida).text();
+    tot = tot.replace("€", "");
+    console.log(tot);
+    tot = tot/(q-1);
+    tot = tot * q;
+    $("#tot_"+ida).text(tot);
         $.ajax({
             type: "GET",
             url: "process_cookie.php",

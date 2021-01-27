@@ -11,9 +11,11 @@
         <script type="text/javascript" src="js/sha512.js"></script>
         <script type="text/javascript" src="js/forms.js"></script>
         <script type="text/javascript" src="js/uploader.js"></script>
+        <script type="text/javascript" src="js/uploader_item.js"></script>
         <script type="text/javascript" src="js/utility.js"></script>
         <script type="text/javascript" src="js/control_form.js"></script>
         <script type="text/javascript" src="js/control_role.js"></script>
+        <script type="text/javascript" src="js/insert_spec.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
         <link rel="icon" href="img/lolitems_doppio.png">
     </head>

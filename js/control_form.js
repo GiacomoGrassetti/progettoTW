@@ -9,6 +9,7 @@ function checkQnt(){
         console.log(rows[j]);
         let columns = $(rows[j]).find("input");
         if(columns[0].value > quantita[i].innerHTML){
+            console.log(quantita[i]);
             alert("Il numero di "+nomi[i].innerHTML+" supera i pezzi disponibili("+quantita[i].innerHTML+")");
             columns[0].value = quantita[i].innerHTML;
             return  false;

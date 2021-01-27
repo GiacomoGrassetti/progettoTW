@@ -4,7 +4,7 @@
     $templateParams["nome"] = "checkout_complete.php";
 
     if(isset($_SESSION["user_id"])){
-        /*insert in carrello*/    
+        /*insert in carrello*/
     }
 
     $data = unserialize($_COOKIE["cart"], ["allowed_classes" => false]);

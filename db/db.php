@@ -194,6 +194,14 @@ class DbHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getItemFromVendor($id){
+        $stmt = $this->db->prepare("SELECT * FROM oggetto where oggetto.idVenditore=?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getItemFromId($id){
         $stmt = $this->db->prepare("SELECT * FROM oggetto where oggetto.idOggetto=?");
         $stmt->bind_param('i',$id);
@@ -244,26 +252,25 @@ class DbHelper{
     }
 
     public function insertObj($obj,$cat,$specs){
-        $stmt=$this->db->prepare("INSERT INTO oggetto(idOggetto,immagine,descrizione,nome,quantita,idSconto,idVenditore,prezzo) VALUES(NULL,?,?,?,?,?,?,?)");
-        $stmt->bind_param('sssiiid',$obj["immagine"],$obj["descrizione"],$obj["nome"],$obj["quantita"],$obj["idSconto"],$obj["idVenditore"],$obj["prezzo"]);
+        $stmt=$this->db->prepare("INSERT INTO oggetto(idOggetto,immagine,descrizione,nome,quantita,idSconto,idVenditore,prezzo) VALUES(NULL,?,?,?,?,NULL,?,?)");
+        $stmt->bind_param('sssiid',$obj["profile_photo"],$obj["itemDesc"],$obj["itemName"],$obj["itemQuantity"],$obj["idVenditore"],$obj["itemPrice"]);
         if($stmt->execute()){
             $idObj=$this->db->insert_id;
             $stmtcat=$this->db->prepare("INSERT INTO diviso(idOggetto,idCategoria) VALUES (?,?)");
             foreach($cat as $category){
-                
                 $stmtcat->bind_param('ii', $idObj, $category);
                 $stmtcat->execute();
             }
             $stmtspec=$this->db->prepare("INSERT INTO statistica(idStat,valore,nome) VALUES (NULL,?,?)");
             $stmtref=$this->db->prepare("INSERT INTO possiede(idOggetto,idStat) VALUES (?,?)");
             foreach($specs as $spec){
-                $stmtspec->bind_param('ss', $spec["valore"],$spec["nome"]);
+                //$stmtspec->bind_param('ss', $spec["valore"],$spec["nome"]);
+                $stmtspec->bind_param('ss', $spec[1],$spec[0]);
                 if($stmtspec->execute()){
                     $tmpIdSpec=$this->db->insert_id;
                     $stmtref->bind_param('ii',$idObj,$tmpIdSpec);
                     $stmtref->execute();
                 }
-
             }
             return true;
         }else{
@@ -285,12 +292,12 @@ class DbHelper{
 
     public function modifyObj($obj){
         $modifyStmt=$this->db->prepare("UPDATE oggetto SET nome=?, descrizione=?, prezzo=?, quantita=?, immagine=? WHERE idOggetto=?");
-        $modifyStmt->bind_param('sssdsi',$obj["nome"],$obj["descrizione"],$obj["prezzo"],$obj["quantita"],$obj["immagine"],$obj["id"]);
+        $modifyStmt->bind_param('sssdsi',$obj["itemName"],$obj["itemDesc"],$obj["itemPrice"],$obj["itemQuantity"],$obj["profile_photo"],$obj["idOggetto"]);
         $modifyStmt->execute();
     }
 
     public function deleteCatRef($idObj,$idCat){
-        $deleteCatRef=$this->db->("DELETE FROM diviso WHERE diviso.idCategoria=? AND diviso.idOggetto=?");
+        $deleteCatRef=$this->db->prepare("DELETE FROM diviso WHERE diviso.idCategoria=? AND diviso.idOggetto=?");
         $deleteCatRef->bind_param('ii',$idCat,$idObj);
         $deleteCatRef->execute();
     }
@@ -303,18 +310,19 @@ class DbHelper{
 
     public function insertCatRef($idObj,$idCat){
         $addcat=$this->db->prepare("INSERT INTO diviso(idOggetto,idCategoria) VALUES (?,?)");
-        $addcat->bind_param($idObj,$idCat);
+        $addcat->bind_param("ii",$idObj,$idCat);
         return $addcat->execute();
     }
 
     
 
-    public function insertStats($idObj,$stat){
+    public function insertStats($idObj,$statN, $statV){
         $insertStat=$this->db->prepare("INSERT INTO statistica(idStat,nome,valore) VALUES(NULL,?,?)");
-        $insertStat->bind_param('ss',$stat["nome",$stat["valore"]]);
+        $insertStat->bind_param('ss',$statN,$statV);
         if($insertStat->execute()){
             $idStat=$this->db->insert_id;
-            $refStmt->$this->db->prepare("INSERT INTO possiede(idStat,idOggetto) VALUES(?,?)");
+            var_dump($idStat);
+            $refStmt=$this->db->prepare("INSERT INTO possiede(idStat,idOggetto) VALUES(?,?)");
             $refStmt->bind_param('ii',$idStat,$idObj);
             $refStmt->execute();
             return true;
@@ -324,12 +332,11 @@ class DbHelper{
 
     public function deleteStat($id){
         $deleteStatRef=$this->db->prepare("DELETE FROM possiede WHERE possiede.idStat=?");
-        $deleteStat->bind_param('i',$id);
+        $deleteStatRef->bind_param('i',$id);
         $deleteStatRef->execute();
         $deleteStat=$this->db->prepare("DELETE FROM statistica WHERE statistica.idStat=?");
         $deleteStat->bind_param('i',$id);
         $deleteStat->execute();
-
     }
 
     public function modifyStat($stat){

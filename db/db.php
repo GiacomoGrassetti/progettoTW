@@ -441,9 +441,10 @@ class DbHelper{
 
             $nome=$this->getOneObjName($id);
             
-            $val=sprintf($val,$nome[0]["nome"],$obj["qnt"][$key]);
+            $ris=sprintf($val,$nome[0]["nome"],$obj["qnt"][$key]);
+
             $ven=$this->getIdVend($id);
-            $stmt->bind_param('is',$ven[0]["idVenditore"],$val);
+            $stmt->bind_param('is',$ven[0]["idVenditore"],$ris);
             $stmt->execute();
         }
 

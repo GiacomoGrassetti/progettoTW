@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<?php var_dump(unserialize($_COOKIE["cart"], ["allowed_classes" => false]));?>
 <html lang="en">
     <head>
         <meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,7 @@
         <script type="text/javascript" src="js/control_form.js"></script>
         <script type="text/javascript" src="js/control_role.js"></script>
         <script type="text/javascript" src="js/insert_spec.js"></script>
+        <script type="text/javascript" src="js/calculator.js"></script>
         <title><?php echo $templateParams["titolo"]; ?></title>
         <link rel="icon" href="img/lolitems_doppio.png">
     </head>
@@ -58,15 +59,11 @@
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" name="inputPassword" id="password" placeholder="Password">
                                 </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                    <label class="form-check-label" for="dropdownCheck">Remember me</label>
-                                </div>
-                                <button class="btn-rectangle" type="submit" onclick="formhash(this.form, this.form.password);">SIGN IN</button>
+                                
+                                <button class="btn-rectangle mt-2" type="submit" onclick="formhash(this.form, this.form.password);">SIGN IN</button>
                             </form>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
-                            <a class="dropdown-item" href="#">Forgot password?</a>
                         </div>
                         <!---->
 
@@ -112,7 +109,13 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="controller_notifica.php">NOTIFICHE</a>
+                                <?php 
+                                    if(login_check($dbh) == true){
+                                ?>  
+                                       <a class="nav-link" href="controller_notifica.php">NOTIFICATIONS</a>
+                                <?php
+                                    } ?>
+                                
                             </li>
                         </ul>
                     </div>

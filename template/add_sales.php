@@ -4,7 +4,7 @@
             <div class="row ">
                 <div class="col-sm-2 form-group">
                     <label for="value">Value</label>
-                    <input type="text" class="form-control" id="value" name="value" required/>
+                    <input type="number" class="form-control" id="value" name="value" required/>
                 </div>
                 <div class="col-sm-4 form-group">
                     <label for="date">expiration date</label>

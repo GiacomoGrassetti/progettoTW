@@ -1,11 +1,6 @@
 <?php
     require_once("setup.php");
-    if(isset($_GET["status"])){
-        if($_GET["status"]==4){
-            
-            require 'template/base.php';
-        }
-    }
+    
     $templateParams["titolo"] = "LolItems - Home";
     $templateParams["nome"] = "home.php";
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
@@ -14,7 +9,13 @@
         }
     }
 
-    
+    if(isset($_GET["status"])){
+        if($_GET["status"]==4){
+            
+            $templateParams["titolo"] = "LolItems - checkout";
+            $templateParams["nome"] = "checkout_complete.php";
+        }
+    }
 
     if(isset($_GET["find"]) && $_GET["find"]!="" ){
         $templateParams["articoli"]=$dbh->findItem('%'.$_GET["find"].'%');

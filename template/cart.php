@@ -42,7 +42,7 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <button class="btn mx-auto btn-rectangle" onclick="callCheckout();">Submit</button>
+                <button class="btn mx-auto btn-rectangle" id="call">Submit</button>
             </div> 
             
         </div>

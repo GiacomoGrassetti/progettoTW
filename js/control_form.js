@@ -1,3 +1,5 @@
+
+
 function low(id){
     if($("#qnt_"+id).text()>0){
         $("#qnt_"+id).text($("#qnt_"+id).text()-1);
@@ -28,13 +30,19 @@ function checkQnt(){
     
 }
 
-function callCheckout(){
-    if(checkQnt()){
-        console.log("enter");
-        $.ajax(
-            
-            location.href = 'process_checkout.php'
-        );
+$(document).ready(function() {
+$('#call').click(function() {
+    $.ajax({
+      type: "POST",
+      url: "process_checkout.php",
+      data: { status:"4"},
+      success: function(){
+        window.location.href="controller_home.php?status=4";
     }
+    });
+  });
+});
 
+function callCheckout(){
+    
 }

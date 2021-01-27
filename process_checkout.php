@@ -7,7 +7,7 @@
         if(isset($_COOKIE["cart"])){
             $cart=unserialize($_COOKIE["cart"], ["allowed_classes" => false]);
             if(!empty($cart)){
-                if(!$checkoutStatus){
+                
                     $checkoutStatus=true;
                     $dbh->insertIntoCart($_SESSION["user_id"],$cart);                  
                     $dbh->checkoutCart($cart,$_SESSION["user_id"]);
@@ -17,7 +17,7 @@
                     setcookie("cart", serialize($data), time() + (86400 * 30), "/");
                     $dbh->notifyUser($notify["add"],$cart,$_SESSION["user_id"]);
                     $dbh->notifyVendor($notify["order"],$cart);
-                }
+                
                 
             }
         }

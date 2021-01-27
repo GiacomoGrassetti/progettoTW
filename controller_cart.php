@@ -9,7 +9,7 @@
             foreach($dbh->getItemFromId($idItem) as $item):
                 $item["qnt"] = $tmp_info["qnt"][$index];
                 array_push($templateParams["articoliCart"], $item); 
-                $checkoutStatus=false;       
+       
             endforeach;    
         endforeach;
     }

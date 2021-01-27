@@ -1,5 +1,6 @@
 <?php
     require_once("setup.php");
+    
     $templateParams["titolo"] = "LolItems - Home";
     $templateParams["nome"] = "home.php";
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
@@ -8,7 +9,7 @@
         }
     }
 
-
+    
 
     if(isset($_GET["find"]) && $_GET["find"]!="" ){
         $templateParams["articoli"]=$dbh->findItem('%'.$_GET["find"].'%');

@@ -8,7 +8,8 @@
         foreach($tmp_info["id"] as $index => $idItem):
             foreach($dbh->getItemFromId($idItem) as $item):
                 $item["qnt"] = $tmp_info["qnt"][$index];
-                array_push($templateParams["articoliCart"], $item);        
+                array_push($templateParams["articoliCart"], $item); 
+                $checkoutStatus=false;       
             endforeach;    
         endforeach;
     }

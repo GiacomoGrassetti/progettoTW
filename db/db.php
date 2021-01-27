@@ -321,7 +321,7 @@ class DbHelper{
         $insertStat->bind_param('ss',$statN,$statV);
         if($insertStat->execute()){
             $idStat=$this->db->insert_id;
-            var_dump($idStat);
+            
             $refStmt=$this->db->prepare("INSERT INTO possiede(idStat,idOggetto) VALUES(?,?)");
             $refStmt->bind_param('ii',$idStat,$idObj);
             $refStmt->execute();
@@ -351,8 +351,8 @@ class DbHelper{
         $stmtUp=$this->db->prepare("UPDATE contiene SET quantita=? WHERE idCliente=? AND idOggetto=?");
         foreach($obj["id"] as $key=>$id){
             $present=$this->controlIfItemInCart($idCliente,$id);
-            var_dump($present);
-            if($present===false){    
+            
+            if($present==-1){    
                 $stmt->bind_param('iii',$idCliente,$id,$obj["qnt"][$key]);
                 $stmt->execute();
             }else{
@@ -371,7 +371,7 @@ class DbHelper{
         $result = $stmt->get_result();
         $ris=$result->fetch_all(MYSQLI_ASSOC);
         if($result->num_rows==0){
-            return false;
+            return -1;
         }else{
             return $ris[0]["quantita"];
         }
@@ -387,6 +387,103 @@ class DbHelper{
 
     }
 
+
+    public function getUserNotification($id){
+        $stmt=$this->db->prepare("SELECT notifica.testo FROM notifica WHERE notifica.idUtente=?");
+        $stmt->bind_param('i',$id);
+        $result=$stmt->execute();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserNotificationNumber($id){
+        $stmt=$this->db->prepare("SELECT count(*) FROM notifica WHERE notifica.idUtente=?");
+        $stmt->bind_param('i',$id);
+        $result=$stmt->execute();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function checkoutCart($obj,$idC){
+        $stmt1=$this->db->prepare("SELECT quantita FROM oggetto WHERE idOggetto=?");
+        $stmt=$this->db->prepare("UPDATE oggetto SET quantita=? WHERE oggetto.idOggetto=?");
+        $stmtUp=$this->db->prepare("DELETE FROM contiene WHERE idOggetto=? AND idCliente=?");
+       // var_dump($obj);
+        foreach($obj["id"] as $key=>$value){
+            $stmt1->bind_param('i',$value);
+            $stmt1->execute();
+            $res= $stmt1->get_result();
+            $val=$res->fetch_all(MYSQLI_ASSOC);
+            //var_dump($key."->".$value);
+
+            $val[0]["quantita"]-= $obj["qnt"][$key];
+ 
+            $stmt->bind_param('ii',$val[0]["quantita"], $value);
+            $stmt->execute();
+            $stmtUp->bind_param('ii',$value,$idC);
+            $stmtUp->execute();
+        }
+        
+       
+    }
+
+    public function notifyUser($val,$obj,$id){
+        $stmt=$this->db->prepare("INSERT INTO notifica(idNotifica,idUtente,testo) VALUES(NULL,?,?)");
+        foreach($this->getObjName($obj["id"]) as $nome){
+            $val=$val.", ".$nome;
+ 
+        }
+        $stmt->bind_param('is',$id,$val);
+        return $stmt->execute();
+    }
+
+    public function notifyVendor($val,$obj){
+        $stmt=$this->db->prepare("INSERT INTO notifica(idNotifica,idUtente,testo) VALUES(NULL,?,?)");
+        foreach($obj["id"] as $key=>$id){
+
+            $nome=$this->getOneObjName($id);
+            
+            $val=sprintf($val,$nome[0]["nome"],$obj["qnt"][$key]);
+            $ven=$this->getIdVend($id);
+            $stmt->bind_param('is',$ven[0]["idVenditore"],$val);
+            $stmt->execute();
+        }
+
+        
+    }
+
+    public function getIdVend($id){
+        $stmt=$this->db->prepare("SELECT idVenditore FROM oggetto WHERE idOggetto=?");
+        
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $res=$stmt->get_result();
+        return $res->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getOneObjName($id){
+        $stmt=$this->db->prepare("SELECT nome FROM oggetto WHERE idOggetto=?");
+        
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $res=$stmt->get_result();
+        
+        return $res->fetch_all(MYSQLI_ASSOC);
+            
+    }
+
+    public function getObjName($obj){
+        $stmt=$this->db->prepare("SELECT nome FROM oggetto WHERE idOggetto=?");
+        $result=[];
+        foreach($obj as $key=>$id){
+            $stmt->bind_param('i',$id);
+            $stmt->execute();
+            $res=$stmt->get_result();
+            $val=$res->fetch_all(MYSQLI_ASSOC);
+            $result[$key]=$val[0]["nome"];
+        }
+        return $result;
+    }
+
+   
 
 }
 ?>

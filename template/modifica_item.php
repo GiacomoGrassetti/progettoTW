@@ -1,6 +1,4 @@
-<?php 
-    var_dump($templateParams["item"]);
-?>
+
 <section class="add-item-area">
     <div class="gradient-top"></div>
     <div class="container">

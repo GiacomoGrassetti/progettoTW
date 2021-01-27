@@ -24,7 +24,6 @@
 
     $catAttuali = $dbh->getItemCat($_GET["idOggetto"]); 
     foreach($catAttuali as $cat){
-        var_dump($cat);
         $dbh->deleteCatRef($_GET["idOggetto"],$cat["idCategoria"]);
     }
 
@@ -35,7 +34,6 @@
 
     $statsAttuali = $dbh->getItemSpecs($_GET["idOggetto"]);
     foreach($statsAttuali as $spec){
-        var_dump($spec);
         $dbh->deleteStat($spec["idStat"]);
     }
 

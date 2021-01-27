@@ -32,6 +32,7 @@ function callCheckout(){
     if(checkQnt()){
         console.log("enter");
         $.ajax(
+            
             location.href = 'process_checkout.php'
         );
     }

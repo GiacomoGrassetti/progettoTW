@@ -25,7 +25,13 @@
                                 </td>
                                 <td class="nome"><?php echo $item["nome"]?></td>
                                 <td class="prezzo"><?php echo $item["prezzo"] ?>€</td>
-                                <td class="qnt"><input class="form-control item-qnt" type="number" name="qnt" value="<?php echo $item["qnt"]?>" id=""></td>
+                               
+                                <td  class="qnt-td">
+                                    <button style="float:left;" onClick="low(<?php echo $item["idOggetto"] ?>)" class="btn" type="button">-</button>
+                                    <p class="qnt" id="qnt_<?php echo $item["idOggetto"] ?>"style="width:min-content;"><?php echo $item["qnt"]?></p>
+                                    <button  onClick="high(<?php echo $item["idOggetto"] ?>)" class="btn" type="button">+</button>
+                                </td>
+                               
                                 <td class="quantita"><?php echo $item["quantita"]?></td>
                                 <td class="tot"><?php echo $item["prezzo"]?>€</td>
                                 <!--<td id="amount-<?php echo $item["idOggetto"]?>">

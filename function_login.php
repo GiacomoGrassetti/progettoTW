@@ -56,7 +56,8 @@
     }
 
     function sec_session_start() {
-        if(empty($_SESSION["loggedin"])) {
+        if(!isset($_SESSION)) {
+
             $session_name = 'sec_session_id'; // Imposta un nome di sessione
             $secure = false; // Imposta il parametro a true se vuoi usare il protocollo 'https'.
             $httponly = true; // Questo impedirà ad un javascript di essere in grado di accedere all'id di sessione.
@@ -66,7 +67,10 @@
             session_name($session_name); // Imposta il nome di sessione con quello prescelto all'inizio della funzione.
             session_start(); // Avvia la sessione php.
             session_regenerate_id(); // Rigenera la sessione e cancella quella creata in precedenza.
-            $_SESSION["loggedin"] = true;
+            if(!isset($_SESSION["user_id"])){
+                $_SESSION["loggedin"] = false;
+        
+            }
         }
     }
 ?>

@@ -1,32 +1,31 @@
+function low(id){
+    if($("#qnt_"+id).text()>0){
+        $("#qnt_"+id).text($("#qnt_"+id).text()-1);
+    }
+}
 
+function high(id){
+    $("#qnt_"+id).text(parseInt($("#qnt_"+id).text())+1);
+    
+}
    
 function checkQnt(){
     let rows = document.getElementsByClassName("tr-control");
-    let quantita = document.getElementsByClassName("quantita");
-    let nomi = document.getElementsByClassName("nome");
-    let i=0;
-    for (let j = 0; j < rows.length; j++) {
-        console.log(rows[j]);
-        let columns = $(rows[j]).find("input");
-        if(columns[0].value > quantita[i].innerHTML){
-            alert("Il numero di "+nomi[i].innerHTML+" supera i pezzi disponibili("+quantita[i].innerHTML+")");
-            columns[0].value = quantita[i].innerHTML;
+
+    for(let item of rows){
+        let qnt= item.getElementsByClassName("qnt").item(0);
+        let quantity=item.getElementsByClassName("quantita").item(0);
+        let nome = document.getElementsByClassName("nome").item(0);
+        if(parseInt(qnt.innerHTML)>parseInt(quantity.innerHTML)){
+            alert("Il numero di "+nome.innerHTML+" supera i pezzi disponibili("+quantity.innerHTML+")");
+            
+            qnt.innerHTML = quantity.innerHTML;
             return  false;
         }
-        i++;
+        
     }
     return true;
-    /*$.each( rows, function(index, row) {
-        let columns = $(row).find("input");
-        if(columns[0].value > quantita[i].innerHTML){
-            alert("Il numero di "+nomi[i].innerHTML+" supera i pezzi disponibili("+quantita[i].innerHTML+")");
-            columns[0].value = quantita[i].innerHTML;
-            console.log("porcodio");
-            return;
-        }
-        i++;
-    });
-    return true;*/
+    
 }
 
 function callCheckout(){

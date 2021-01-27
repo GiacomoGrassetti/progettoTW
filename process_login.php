@@ -5,18 +5,14 @@
         $email = $_POST['inputEmail'];
         $password = $_POST['p']; // Recupero la password criptata.
         if(login($email, $password, $dbh) == true) {
-            // Login eseguito
-            echo 'Success: You have been logged in!';
+
             
             $_SESSION['loggedin'] = true;
-            header('Location: ./');
+            header('Location: ./controller_home.php?status=1');
         } else {
             // Login fallito
             $templateParams["errorval"] = "Bad login, try again!";
             include('controller_error.php');
         }
-    } else { 
-    // Le variabili corrette non sono state inviate a questa pagina dal metodo POST.
-    echo 'Invalid Request';
     }
 ?>

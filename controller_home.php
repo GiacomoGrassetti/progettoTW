@@ -2,6 +2,13 @@
     require_once("setup.php");
     $templateParams["titolo"] = "LolItems - Home";
     $templateParams["nome"] = "home.php";
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
+        if(isset($_GET["status"]) && $_GET["status"]==1){
+            require 'process_cart.php';
+        }
+    }
+
+
 
     if(isset($_GET["find"]) && $_GET["find"]!="" ){
         $templateParams["articoli"]=$dbh->findItem('%'.$_GET["find"].'%');
@@ -19,6 +26,7 @@
         $templateParams["errorval"] = "Nothing found";
         include('controller_error.php');
     }
+
 
     
 

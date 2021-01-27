@@ -290,7 +290,7 @@ class DbHelper{
     }
 
     public function deleteCatRef($idObj,$idCat){
-        $deleteCatRef=$this->db->("DELETE FROM diviso WHERE diviso.idCategoria=? AND diviso.idOggetto=?");
+        $deleteCatRef=$this->db->prepare("DELETE FROM diviso WHERE diviso.idCategoria=? AND diviso.idOggetto=?");
         $deleteCatRef->bind_param('ii',$idCat,$idObj);
         $deleteCatRef->execute();
     }
@@ -303,7 +303,7 @@ class DbHelper{
 
     public function insertCatRef($idObj,$idCat){
         $addcat=$this->db->prepare("INSERT INTO diviso(idOggetto,idCategoria) VALUES (?,?)");
-        $addcat->bind_param($idObj,$idCat);
+        $addcat->bind_param('ii',$idObj,$idCat);
         return $addcat->execute();
     }
 
@@ -311,7 +311,7 @@ class DbHelper{
 
     public function insertStats($idObj,$stat){
         $insertStat=$this->db->prepare("INSERT INTO statistica(idStat,nome,valore) VALUES(NULL,?,?)");
-        $insertStat->bind_param('ss',$stat["nome",$stat["valore"]]);
+        $insertStat->bind_param('ss',$stat["nome"],$stat["valore"]);
         if($insertStat->execute()){
             $idStat=$this->db->insert_id;
             $refStmt->$this->db->prepare("INSERT INTO possiede(idStat,idOggetto) VALUES(?,?)");
@@ -336,6 +336,48 @@ class DbHelper{
         $modifyStmt=$this->db->prepare("UPDATE statistica SET statistica.valore=?, statistica.nome=? WHERE statistica.idStat=?");
         $modifyStmt->bind_param('ssi',$stat["valore"], $stat["nome"], $stat["id"]);
         $modifyStmt->execute();
+    }
+
+    public function insertIntoCart($idCliente,$obj){
+        
+        $stmt=$this->db->prepare("INSERT INTO contiene(idCliente,idOggetto,quantita) VALUES(?,?,?)");
+        $stmtUp=$this->db->prepare("UPDATE contiene SET quantita=? WHERE idCliente=? AND idOggetto=?");
+        foreach($obj["id"] as $key=>$id){
+            $present=$this->controlIfItemInCart($idCliente,$id);
+            var_dump($present);
+            if($present===false){    
+                $stmt->bind_param('iii',$idCliente,$id,$obj["qnt"][$key]);
+                $stmt->execute();
+            }else{
+
+                $present=$obj["qnt"][$key];
+                $stmtUp->bind_param('iii',$present,$idCliente,$id);
+                $stmtUp->execute();
+            }
+        }
+    }
+
+    public function controlIfItemInCart($idC,$idIt){
+        $stmt=$this->db->prepare("SELECT * FROM contiene where idCliente=? and idOggetto=? ");
+        $stmt->bind_param('ii',$idC,$idIt);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $ris=$result->fetch_all(MYSQLI_ASSOC);
+        if($result->num_rows==0){
+            return false;
+        }else{
+            return $ris[0]["quantita"];
+        }
+    }
+
+
+    public function getAllIntoCart($id){
+        $stmt=$this->db->prepare("SELECT * FROM contiene where idCliente=? ");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
     }
 
 

@@ -65,8 +65,12 @@
                             <a class="dropdown-item" href="controller_register.php">New around here? Sign up</a>
                         </div>
                         <!---->
-
-                        <h6 class="ml-2"><a class="col-sm-1" href="controller_cart.php"><i class="fas fa-shopping-cart"></i> CART |&nbsp;</a> </h6>
+                        <?php 
+                            if(!(isset($_SESSION["venditore"]) && $_SESSION["venditore"])): ?>
+                                <h6 class="ml-2"><a class="col-sm-1" href="controller_cart.php"><i class="fas fa-shopping-cart"></i> CART |&nbsp;</a> </h6>
+                        <?php endif; ?>
+                        
+                        
                         <?php 
                             if(login_check($dbh) == true){
                             ?>  

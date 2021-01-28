@@ -78,6 +78,21 @@ class DbHelper{
         }
     }
 
+    public function checkUserVendor($id, $email){
+        $stmt = $this->db->prepare("SELECT email FROM venditore WHERE idVenditore = ? LIMIT 1");
+        $stmt->bind_param('i', $id); // esegue il bind del parametro '$email'.
+        $stmt->execute(); // esegue la query appena creata.
+        $stmt->store_result();
+        if($stmt->num_rows == 1){
+            $stmt->bind_Result($emailDB);
+            $stmt->fetch();
+            if($email==$emailDB){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function getUserInfo($id_cliente){
 
         $stmt = $this->db->prepare("SELECT idCliente, username, email, password, strada, citta, stato, nome, cognome, telefono, immagine, codP, salt FROM cliente WHERE idCliente = ? LIMIT 1");
@@ -443,7 +458,16 @@ class DbHelper{
             //var_dump($key."->".$value);
 
             $val[0]["quantita"]-= $obj["qnt"][$key];
- 
+            if($val[0]["quantita"]==0){
+                $stmtN=$this->db->prepare("INSERT INTO notifica(idNotifica,idUtente,testo) VALUES(NULL,?,?)");
+                $ven=$this->getIdVend($value);
+                $txt="Il suo oggetto %s ha terminato le scorte in magazzino";
+                $nome=$this->getOneObjName($value);
+                $txt=sprintf($txt,$nome[0]["nome"]);
+                var_dump($txt);
+                $stmtN->bind_param('is',$ven[0]["idVenditore"],$txt);
+                $stmtN->execute();
+            }
             $stmt->bind_param('ii',$val[0]["quantita"], $value);
             $stmt->execute();
             $stmtUp->bind_param('ii',$value,$idC);

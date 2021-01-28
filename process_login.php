@@ -5,7 +5,7 @@
         $email = $_POST['inputEmail'];
         $password = $_POST['p']; // Recupero la password criptata.
         if(login($email, $password, $dbh) == true) {
-            
+            $_SESSION["email"] = $email;
             $_SESSION['loggedin'] = true;
             header('Location: ./controller_home.php?status=1');
         } else {

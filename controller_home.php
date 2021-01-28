@@ -4,6 +4,8 @@
     $templateParams["titolo"] = "LolItems - Home";
     $templateParams["nome"] = "home.php";
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
+        $_SESSION["venditore"] = $dbh->checkUserVendor($_SESSION["user_id"],$_SESSION["email"]);
+
         if(isset($_GET["status"]) && $_GET["status"]==1){
             require 'process_cart.php';
         }

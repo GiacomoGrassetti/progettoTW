@@ -6,7 +6,7 @@
     if(isset($_SESSION["user_id"])){
         if(isset($_COOKIE["cart"])){
             $cart=unserialize($_COOKIE["cart"], ["allowed_classes" => false]);
-            if(isset($cart[0])){
+            if(true){
                 
                     $checkoutStatus=true;
                     $dbh->insertIntoCart($_SESSION["user_id"],$cart);                  

@@ -12,9 +12,8 @@
     $info = $_POST;
     $info["idVenditore"] = $_SESSION["user_id"];
     $info["idOggetto"] = $_GET["idOggetto"];
-    $cat = $_POST["categoria"];
     if($info["profile_photo"] == ""){
-        $info["profile_photo"] = "img/items/item_default.png";
+        $info["profile_photo"] = $info["lastPhoto"];
     }else{
         $info["profile_photo"] = "img/items/".$info["profile_photo"];
     }
@@ -22,13 +21,16 @@
    
     $dbh->modifyObj($info);
 
-    $catAttuali = $dbh->getItemCat($_GET["idOggetto"]); 
-    foreach($catAttuali as $cat){
-        $dbh->deleteCatRef($_GET["idOggetto"],$cat["idCategoria"]);
-    }
+    if(isset($info["categoria"])){
+        $cat = $_POST["categoria"];
+        $catAttuali = $dbh->getItemCat($_GET["idOggetto"]); 
+        foreach($catAttuali as $cat){
+            $dbh->deleteCatRef($_GET["idOggetto"],$cat["idCategoria"]);
+        }
 
-    foreach($info["categoria"] as $cat){
-        $dbh->insertCatRef($_GET["idOggetto"],$cat);
+        foreach($info["categoria"] as $cat){
+            $dbh->insertCatRef($_GET["idOggetto"],$cat);
+        }
     }
 
 

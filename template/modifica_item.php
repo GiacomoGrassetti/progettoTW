@@ -1,4 +1,3 @@
-
 <section class="add-item-area">
     <div class="gradient-top"></div>
     <div class="container">
@@ -10,8 +9,8 @@
                         <image id="itemImage" src="<?php echo $templateParams["item"][0]["immagine"]?>"/>
                     </div>
                     <label for="imageItemUpload">profile photo</label>
-                    <input id="imageItemUpload" type="file" name="profile_photo" placeholder="Photo" accept="image/*" capture/>
-
+                    <input id="imageItemUpload" type="file" name="profile_photo" value="<?php echo $templateParams["item"][0]["immagine"]?>" placeholder="Photo" accept="image/*" capture/>
+                    <input type="hidden" name="lastPhoto" value="<?php echo $templateParams["item"][0]["immagine"]?>"/>
                     <div class="add mt-2">
                         <label for="spec" class="mb-2">Statistic(name=value)</label>
                         <input id="spec" type="text" class="form-control input-stretch mb-2" id="nomeSpec" name="nomeSpec" placeholder="name=value">
@@ -40,6 +39,7 @@
                 <div class="col-sm-2 add-box">
                     <fieldset>
                     <legend class="mb-2">Category item</legend>
+                    <small>Do not select to keep categories</small> 
                     <?php foreach ($templateParams["category"] as $cat) : ?>
                         <div class="add form-check cat-box">
                             <input class="form-check-input" name="categoria[]" type="checkbox" id="<?php echo $cat["idCategoria"]?>" value="<?php echo $cat["idCategoria"]?>">

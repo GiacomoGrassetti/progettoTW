@@ -540,8 +540,13 @@ td {
     background-image: url(../img/bg-register.png);
 }
 
+.area-add-sales{
+    background-image: url(../img/bg-register.png);
+}
+
 
 /*TEMPLATE NOTIFICA*/
 .area-notifica{
     background-image:  url(../img/bg-cart.png);
 }
+
